@@ -129,6 +129,10 @@ extern ConVar tf_mm_servermode;
 #include "replay/ireplaysystem.h"
 #endif
 
+#ifdef WITH_LUA
+#include "luamanager.h"
+#endif
+
 extern IToolFrameworkServer *g_pToolFrameworkServer;
 extern IParticleSystemQuery *g_pParticleSystemQuery;
 
@@ -742,6 +746,11 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	gamestatsuploader->InitConnection();
 #endif
 
+#ifdef WITH_LUA
+    // Start LUA
+    Lua()->InitDll();
+#endif
+
 	return true;
 }
 
@@ -752,6 +761,11 @@ void CServerGameDLL::PostInit()
 
 void CServerGameDLL::DLLShutdown( void )
 {
+
+#ifdef WITH_LUA
+    // Shutdown Lua, close all open gameplays
+    Lua()->ShutdownDll();
+#endif
 
 	// Due to dependencies, these are not autogamesystems
 	ModelSoundsCacheShutdown();
