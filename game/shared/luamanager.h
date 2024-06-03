@@ -7,7 +7,6 @@
 
 #ifndef LUAMANAGER_H
 #define LUAMANAGER_H
->>>>>>> bc207aa9d ((WIP)):src/game/shared/luamanager.h
 #ifdef _WIN32
 #pragma once
 #endif

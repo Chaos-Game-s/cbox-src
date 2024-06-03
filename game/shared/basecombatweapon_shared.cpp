@@ -251,6 +251,9 @@ void CBaseCombatWeapon::Precache( void )
 #endif
 	m_iPrimaryAmmoType = m_iSecondaryAmmoType = -1;
 
+#if defined(LUA_SDK)
+        if (!IsScripted()) {
+#endif
 	// Add this weapon to the weapon registry, and get our index into it
 	// Get weapon data from script file
 	if ( ReadWeaponDataFromFileForSlot( filesystem, GetClassname(), &m_hWeaponFileInfo, GetEncryptionKey() ) )
@@ -312,7 +315,10 @@ void CBaseCombatWeapon::Precache( void )
 		// Couldn't read data file, remove myself
 		Warning( "Error reading weapon data file for: %s\n", GetClassname() );
 	//	Remove( );	//don't remove, this gets released soon!
-	}
+        }
+#if defined(LUA_SDK)
+        }
+#endif
 }
 
 //-----------------------------------------------------------------------------

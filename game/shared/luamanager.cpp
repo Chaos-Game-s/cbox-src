@@ -18,7 +18,7 @@
 #include "weapon_hl2mpbase_scriptedweapon.h"
 #include "luamanager.h"
 #include "luasrclib.h"
-#include "lua/luacachefile.h"
+#include "luacachefile.h"
 #include "lconvar.h"
 #include "licvar.h"
 
