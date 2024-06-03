@@ -1788,6 +1788,7 @@
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClInclude>
 <<<<<<< HEAD:game/server/server_hl2mp.vcxproj.filters
+<<<<<<< HEAD:game/server/server_hl2mp.vcxproj.filters
 =======
     <ClInclude Include="..\..\game\shared\lauxlib.h">
       <Filter>Source Files\Lua</Filter>
@@ -1802,6 +1803,12 @@
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\luamanager.h">
+=======
+    <ClInclude Include="..\..\game\shared\baseluahandle.h">
+      <Filter>Source Files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\luahandle.h">
+>>>>>>> 28522408f (add lua_run command):src/game/server/server_hl2mp.vcxproj.filters
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
     <ClInclude Include="nav.h">
@@ -3407,8 +3414,15 @@
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClCompile>
 <<<<<<< HEAD:game/server/server_hl2mp.vcxproj.filters
+<<<<<<< HEAD:game/server/server_hl2mp.vcxproj.filters
 =======
     <ClCompile Include="..\..\game\shared\luamanager.cpp">
+=======
+    <ClCompile Include="..\..\game\shared\baseluahandle.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\luahandle.cpp">
+>>>>>>> 28522408f (add lua_run command):src/game/server/server_hl2mp.vcxproj.filters
       <Filter>Source Files\Lua</Filter>
     </ClCompile>
     <ClCompile Include="nav_area.cpp">

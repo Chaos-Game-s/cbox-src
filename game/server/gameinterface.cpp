@@ -4,7 +4,7 @@
 // external
 //			sources (only the engine at the time of writing)
 //			This files ONLY contains functions and data necessary to
-//build an interface 			to external modules
+// build an interface 			to external modules
 //===========================================================================//
 
 #include "EventLog.h"
@@ -132,7 +132,7 @@ extern ConVar tf_mm_servermode;
 #endif
 
 #ifdef WITH_LUA
-#include "luamanager.h"
+#include "baseluahandle.h"
 #endif
 
 extern IToolFrameworkServer *g_pToolFrameworkServer;
@@ -1110,7 +1110,7 @@ bool CServerGameDLL::LevelInit(const char *pMapName, char const *pMapEntities,
 // Purpose: called after every level change and load game, iterates through all
 // the
 //			active entities and gives them a chance to fix up their
-//state
+// state
 //-----------------------------------------------------------------------------
 #ifdef DEBUG
 bool g_bReceivedChainedActivate;
@@ -1508,8 +1508,9 @@ CSaveRestoreData *CServerGameDLL::SaveInit(int size) {
 // disk Input  : *pSaveData - the saverestore object
 //			char *pname - the name of the data to write
 //			*pBaseData - the struct into which the data is to be
-//read 			*pFields - pointer to an array of data field descriptions 			fieldCount -
-//the size of the array (number of field descriptions)
+// read 			*pFields - pointer to an array of data field
+// descriptions 			fieldCount - the size of the array
+// (number of field descriptions)
 //-----------------------------------------------------------------------------
 void CServerGameDLL::SaveWriteFields(CSaveRestoreData *pSaveData,
                                      const char *pname, void *pBaseData,
@@ -1525,7 +1526,8 @@ void CServerGameDLL::SaveWriteFields(CSaveRestoreData *pSaveData,
 // Input  : *pSaveData - the saverestore object
 //			char *pname - the name of the data to extract from
 //			*pBaseData - the struct into which the data is to be
-//restored 			*pFields - pointer to an array of data field descriptions 			fieldCount
+// restored 			*pFields - pointer to an array of data field
+// descriptions 			fieldCount
 //- the size of the array (number of field descriptions)
 //-----------------------------------------------------------------------------
 
@@ -1843,7 +1845,7 @@ void CServerGameDLL::PreSaveGameLoaded(char const *pSaveName, bool bInGame) {
 //-----------------------------------------------------------------------------
 // Purpose: Returns true if the game DLL wants the server not to be made public.
 //			Used by commentary system to hide multiplayer commentary
-//servers from the master.
+// servers from the master.
 //-----------------------------------------------------------------------------
 bool CServerGameDLL::ShouldHideServer(void) {
   if (g_pcv_commentary && g_pcv_commentary->GetBool())
