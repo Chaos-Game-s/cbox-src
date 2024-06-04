@@ -2,7 +2,7 @@
 5dbec75c ..\..\devtools\bin\vpc.exe
 _Nc_2013VS2013/vpcgame:hl2mp_
 e642f29e server_hl2mp.vpc
-f20df8e7 ..\..\game\server\server_base.vpc
+119a538a ..\..\game\server\server_base.vpc
 4832e67a ..\..\vpc_scripts\source_dll_base.vpc
 d752cf80 ..\..\vpc_scripts\platform_dirs.vpc
 6c4a5ff1 ..\..\vpc_scripts\source_base.vpc

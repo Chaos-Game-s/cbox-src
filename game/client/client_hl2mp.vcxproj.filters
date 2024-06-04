@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Precompiled Header">
       <UniqueIdentifier>{A7D26A13-21F4-C6B5-5922-8A4FB05AF07D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scripted Controls">
+      <UniqueIdentifier>{7B883D3E-5F9D-33C7-A9A5-BC169F0013A2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Sixense">
       <UniqueIdentifier>{5595354B-BE1B-8C7C-B3CB-72257228B6D3}</UniqueIdentifier>
     </Filter>
@@ -279,6 +282,24 @@
       <Filter>Game Shared Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\IVehicle.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\lbaseplayer_shared.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\leffect_dispatch_data.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\limovehelper.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\lshareddefs.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\ltakedamageinfo.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\luasrclib.h">
       <Filter>Game Shared Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\mapdata_shared.h">
@@ -905,6 +926,9 @@
     <ClInclude Include="lerp_functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\lvphysics_interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1490,7 +1514,58 @@
     <ClInclude Include="..\..\public\vgui_controls\Label.h">
       <Filter>Public Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\public\lcmodel.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\lColor.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\vgui_controls\lControls.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\tier1\lconvar.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\vgui_controls\lEditablePanel.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\lfilesystem.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\lgametrace.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\licvar.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\materialsystem\limaterial.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\vgui\LIScheme.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\SoundEmitterSystem\lisoundemittersystembase.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\public\vgui_controls\ListPanel.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\tier1\LKeyValues.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\lnetworkstringtabledefs.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\vgui_controls\lPanel.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\mathlib\lvector.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\vgui\LVGUI.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\mathlib\lvmatrix.h">
       <Filter>Public Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\public\mathlib\mathlib.h">
@@ -1925,6 +2000,9 @@
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_machinegun.h">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_scriptedweapon.h">
+      <Filter>Source Files\HL2MP\Weapons</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbasehlmpcombatweapon.h">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClInclude>
@@ -1937,26 +2015,16 @@
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_slam.h">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClInclude>
-<<<<<<< HEAD:game/client/client_hl2mp.vcxproj.filters
-    <ClInclude Include="..\..\game\shared\lauxlib.h">
+    <ClInclude Include="..\..\game\shared\basescripted.h">
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\game\shared\lua.h">
+    <ClInclude Include="..\..\public\steam\listeamfriends.h">
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\game\shared\luaconf.h">
-      <Filter>Source Files\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game\shared\lualib.h">
+    <ClInclude Include="..\..\game\shared\luacachefile.h">
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\luamanager.h">
-=======
-    <ClInclude Include="..\..\game\shared\baseluahandle.h">
-      <Filter>Source Files\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game\shared\luahandle.h">
->>>>>>> 28522408f (add lua_run command):src/game/client/client_hl2mp.vcxproj.filters
       <Filter>Source Files\Lua</Filter>
     </ClInclude>
     <ClInclude Include="sixense\in_sixense.h">
@@ -3383,6 +3451,9 @@
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_machinegun.cpp">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_scriptedweapon.cpp">
+      <Filter>Source Files\HL2MP\Weapons</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbasebasebludgeon.cpp">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClCompile>
@@ -3410,10 +3481,139 @@
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_stunstick.cpp">
       <Filter>Source Files\HL2MP\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game\shared\baseluahandle.cpp">
+    <ClCompile Include="..\..\game\shared\basescripted.cpp">
       <Filter>Source Files\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game\shared\luahandle.cpp">
+    <ClCompile Include="..\..\game\shared\lbasecombatweapon_shared.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lbaseentity_shared.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lbaseplayer_shared.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lbspflags.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lcdll_int.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lColor.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\tier1\lconvar.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\tier0\ldbg.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui_controls\lEditablePanel.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\leffect_dispatch_data.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lfilesystem.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lgametrace.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lglobalvars_base.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\tier1\liconvar.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\licvar.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lienginevgui.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui\LIInput.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\materialsystem\limaterial.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\limovehelper.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lin_buttons.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lipredictionsystem.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui\LIScheme.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\SoundEmitterSystem\lisoundemittersystembase.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\steam\listeamfriends.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui\LISurface.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\engine\livdebugoverlay.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\tier1\LKeyValues.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\mathlib\lmathlib.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lnetworkstringtabledefs.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui_controls\lPanel.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vphysics\lperformance.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vstdlib\lrandom.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lshareddefs.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lsrcinit.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\steam\lsteam_api.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\ltakedamageinfo.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\luacachefile.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\luamanager.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\lutil_shared.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\mathlib\lvector.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui\LVGUI.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vgui_controls\lvgui_controls.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\mathlib\lvmatrix.cpp">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\lvphysics_interface.cpp">
       <Filter>Source Files\Lua</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
