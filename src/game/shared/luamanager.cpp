@@ -131,11 +131,9 @@ static int luasrc_Msg(lua_State *L) {
     return 0;
 }
 
-static const luaL_Reg base_funcs[] = {{"print", luasrc_print},
-                                      {"Msg", luasrc_Msg},
-                                      {"type", luasrc_type},
-                                      {"include", luasrc_include},
-                                      {NULL, NULL}};
+static const luaL_Reg base_funcs[] = {
+    {"print", luasrc_print}, {"Msg", luasrc_Msg},         {"MsgN", luasrc_MsgN},
+    {"type", luasrc_type},   {"include", luasrc_include}, {NULL, NULL}};
 
 static void base_open(lua_State *L) {
     /* set global _R */
@@ -149,10 +147,10 @@ static void base_open(lua_State *L) {
     lua_setglobal(L, "_E");
 #ifdef CLIENT_DLL
     lua_pushboolean(L, 1);
-    lua_setglobal(L, "_CLIENT"); /* set global _CLIENT */
+    lua_setglobal(L, "CLIENT");
 #else
     lua_pushboolean(L, 1);
-    lua_setglobal(L, "_GAME"); /* set global _GAME */
+    lua_setglobal(L, "SERVER");
 #endif
 }
 
@@ -694,6 +692,50 @@ bool luasrc_SetGamemode(const char *gamemode) {
         Warning("ERROR: Failed to load gamemode module!\n");
         return false;
     }
+
+    lua_getfield(L, -1, "Get");
+
+    if (!lua_isfunction(L, -1)) {
+        lua_pop(L, 2);  // Remove gamemode table and Get function
+        Warning("ERROR: Failed to set gamemode!\n");
+        return false;
+    }
+
+    lua_remove(L, -2);              // Remove gamemode table
+    lua_pushstring(L, gamemode);    // Push gamemode name
+    luasrc_pcall(L, 1, 1, 0);       // Call gamemode.Get(gamemode)
+    lua_setglobal(L, "GAMEMODE");   // Set GAMEMODE to the active gamemode table
+
+    lua_getglobal(L, "gamemode");
+    lua_getfield(L, -1, "InternalSetActiveName");
+
+    if (!lua_isfunction(L, -1)) {
+        lua_pop(L,
+                2);  // Remove gamemode table and InternalSetActiveName function
+        Warning("ERROR: Failed to set gamemode!\n");
+        return false;
+    }
+
+    lua_remove(L, -2);            // Remove gamemode table
+    lua_pushstring(L, gamemode);  // Push gamemode name
+    luasrc_pcall(L, 1, 0, 0);  // Call gamemode.InternalSetActiveName(gamemode)
+
+    Q_snprintf(contentSearchPath, sizeof(contentSearchPath),
+               "gamemodes\\%s\\content", gamemode);
+
+    filesystem->AddSearchPath(contentSearchPath, "MOD");
+
+    char loadPath[MAX_PATH];
+    Q_snprintf(loadPath, sizeof(loadPath), "%s\\", contentSearchPath);
+
+    luasrc_LoadWeapons(loadPath);
+    luasrc_LoadEntities(loadPath);
+    // luasrc_LoadEffects( loadPath );
+
+    BEGIN_LUA_CALL_HOOK("Initialize");
+    END_LUA_CALL_HOOK(0, 0);
+
+    return true;
 }
 
 #ifdef LUA_SDK

@@ -1,4 +1,4 @@
-//===== Copyright © 1996-2005, Valve Corporation, All rights reserved. ======//
+//===== Copyright ï¿½ 1996-2005, Valve Corporation, All rights reserved. ======//
 //
 // Purpose: 
 //
@@ -242,9 +242,10 @@ static int Panel_GetDropFrameColor (lua_State *L) {
   return 1;
 }
 
-static int Panel_GetFgColor (lua_State *L) {
-  lua_pushcolor(L, luaL_checkpanel(L, 1)->GetFgColor());
-  return 1;
+static int Panel_SetPos(lua_State *L) {
+    luaL_checkpanel(L, 1)->SetPos(luaL_checknumber(L, 2),
+                                  luaL_checknumber(L, 3));
+    return 0;
 }
 
 static int Panel_GetInset (lua_State *L) {
