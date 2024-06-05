@@ -28,6 +28,10 @@
 #define LUA_PATH_GAMEUI				LUA_ROOT "\\gameui"
 #define LUA_PATH_WEAPONS			LUA_ROOT "\\weapons"
 
+#define LUA_BASE_ENTITY_CLASS "prop_scripted"
+#define LUA_BASE_ENTITY_FACTORY "CBaseAnimating"
+#define LUA_BASE_WEAPON "weapon_hl2mpbase_scriptedweapon"
+#define LUA_BASE_GAMEMODE "base"
 
 #define LUA_BASE_ENTITY_CLASS		"prop_scripted"
 #define LUA_BASE_ENTITY_FACTORY		"CBaseAnimating"
@@ -54,7 +58,7 @@
   lua_pop(L, 1);
 
 #define BEGIN_LUA_CALL_HOOK(functionName)    \
-    lua_getglobal(L, "hook");                \
+    lua_getglobal(L, "hooks");                \
     if (lua_istable(L, -1)) {                \
         lua_getfield(L, -1, "Call");         \
         if (lua_isfunction(L, -1)) {         \

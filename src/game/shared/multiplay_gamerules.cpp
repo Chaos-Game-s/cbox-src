@@ -327,12 +327,9 @@ bool CMultiplayRules::Init()
 }
 
 
-#ifdef CLIENT_DLL
+#ifndef CLIENT_DLL
 
-
-#else 
-
-	extern bool			g_fGameOver;
+    extern bool g_fGameOver;
 
 	#define ITEM_RESPAWN_TIME	30
 	#define WEAPON_RESPAWN_TIME	20
@@ -362,12 +359,13 @@ ConVarRef suitcharger( "sk_suitcharger" );
 //=============================================================================
 #endif
 	}
+#endif
 
-
+#if defined(LUA_SDK) || !defined(CLIENT_DLL)
 	//=========================================================
 	//=========================================================
-	void CMultiplayRules::Think ( void )
-	{
+	void CMultiplayRules::Think ( void ) {
+#ifndef CLIENT_DLL
 		BaseClass::Think();
 		
 		///// Check game rules /////
@@ -401,8 +399,11 @@ ConVarRef suitcharger( "sk_suitcharger" );
 				}
 			}
 		}
+#endif
 	}
+#endif
 
+#ifndef CLIENT_DLL
 	//=========================================================
 	//=========================================================
 	void CMultiplayRules::FrameUpdatePostEntityThink()

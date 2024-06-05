@@ -105,27 +105,20 @@ CBaseScripted::~CBaseScripted( void )
 #endif
 }
 
-void CBaseScripted::LoadScriptedEntity( void )
-{
-	lua_getglobal( L, "entity" );
-	if ( lua_istable( L, -1 ) )
-	{
-		lua_getfield( L, -1, "get" );
-		if ( lua_isfunction( L, -1 ) )
-		{
-			lua_remove( L, -2 );
-			lua_pushstring( L, GetClassname() );
-			luasrc_pcall( L, 1, 1, 0 );
-		}
-		else
-		{
-			lua_pop( L, 2 );
-		}
-	}
-	else
-	{
-		lua_pop( L, 1 );
-	}
+void CBaseScripted::LoadScriptedEntity(void) {
+    lua_getglobal(L, "entities");
+    if (lua_istable(L, -1)) {
+        lua_getfield(L, -1, "Get");
+        if (lua_isfunction(L, -1)) {
+            lua_remove(L, -2);
+            lua_pushstring(L, GetClassname());
+            luasrc_pcall(L, 1, 1, 0);
+        } else {
+            lua_pop(L, 2);
+        }
+    } else {
+        lua_pop(L, 1);
+    }
 }
 
 void CBaseScripted::InitScriptedEntity( void )
