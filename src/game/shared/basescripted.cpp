@@ -160,34 +160,25 @@ void CBaseScripted::InitScriptedEntity( void )
  	Q_strlower( className );
 	SetClassname( className );
 
-	if ( m_nTableReference == LUA_NOREF )
-	{
-		LoadScriptedEntity();
-		m_nTableReference = luaL_ref( L, LUA_REGISTRYINDEX );
-	}
-	else
-	{
-		lua_getglobal( L, "table" );
-		if ( lua_istable( L, -1 ) )
-		{
-			lua_getfield( L, -1, "merge" );
-			if ( lua_isfunction( L, -1 ) )
-			{
-				lua_remove( L, -2 );
-				lua_getref( L, m_nTableReference );
-				LoadScriptedEntity();
-				luasrc_pcall( L, 2, 0, 0 );
-			}
-			else
-			{
-				lua_pop( L, 2 );
-			}
-		}
-		else
-		{
-			lua_pop( L, 1 );
-		}
-	}
+    if (!lua_isrefvalid(L, m_nTableReference)) {
+        LoadScriptedEntity();
+        m_nTableReference = luaL_ref(L, LUA_REGISTRYINDEX);
+    } else {
+        lua_getglobal(L, "table");
+        if (lua_istable(L, -1)) {
+            lua_getfield(L, -1, "Merge");
+            if (lua_isfunction(L, -1)) {
+                lua_remove(L, -2);
+                lua_getref(L, m_nTableReference);
+                LoadScriptedEntity();
+                luasrc_pcall(L, 2, 0, 0);
+            } else {
+                lua_pop(L, 2);
+            }
+        } else {
+            lua_pop(L, 1);
+        }
+    }
 
 	BEGIN_LUA_CALL_ENTITY_METHOD( "Initialize" );
 	END_LUA_CALL_ENTITY_METHOD( 0, 0 );
