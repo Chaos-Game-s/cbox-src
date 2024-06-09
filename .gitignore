@@ -72,3 +72,15 @@ game/server/server_hl2mp.vcxproj.vpc_crc
 lib
 # config file different for each user
 .env
+<<<<<<< HEAD
+=======
+
+# mod content while debugging
+game/experiment/materials/**/*.vtf
+game/experiment/materials/**/*.vmt
+
+# lua/download cache files
+game/experiment/download/*
+game/experiment/cache/*
+game/experiment/**/*.ztmp
+>>>>>>> 1726ba53a (Add download of resources (testing))
