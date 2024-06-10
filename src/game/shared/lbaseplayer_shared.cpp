@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ï¿½ 1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: Implements shared baseplayer class functionality
 //
@@ -1047,9 +1047,16 @@ static const luaL_Reg CBasePlayer_funcs[] = {
 /*
 ** Open CBasePlayer object
 */
-LUALIB_API int luaopen_CBasePlayer_shared (lua_State *L) {
-  luaL_getmetatable(L, LUA_BASEPLAYERLIBNAME);
-  if (lua_isnoneornil(L, -1)) {
+LUALIB_API int luaopen_CBasePlayer_shared(lua_State *L) {
+    luaL_getmetatable(L, LUA_BASEPLAYERLIBNAME);
+    if (lua_isnoneornil(L, -1)) {
+        lua_pop(L, 1);
+        luaL_newmetatable(L, LUA_BASEPLAYERLIBNAME);
+    }
+    luaL_register(L, NULL, CBasePlayermeta);
+    lua_pushstring(L, "entity");
+    lua_setfield(L, -2, "__type"); /* metatable.__type = "entity" */
+    luaL_register( L, LUA_GNAME, CBasePlayer_funcs );
     lua_pop(L, 1);
     luaL_newmetatable(L, LUA_BASEPLAYERLIBNAME);
   }

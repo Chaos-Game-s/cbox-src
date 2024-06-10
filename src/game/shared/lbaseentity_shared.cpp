@@ -1,4 +1,4 @@
-//===== Copyright © 1996-2005, Valve Corporation, All rights reserved. ======//
+//===== Copyright ï¿½ 1996-2005, Valve Corporation, All rights reserved. ======//
 //
 // Purpose: The base class from which all game entities are derived.
 //
@@ -1727,9 +1727,16 @@ static const luaL_Reg CBaseEntity_funcs[] = {
 /*
 ** Open CBaseEntity object
 */
-LUALIB_API int luaopen_CBaseEntity_shared (lua_State *L) {
-  luaL_getmetatable(L, LUA_BASEENTITYLIBNAME);
-  if (lua_isnoneornil(L, -1)) {
+LUALIB_API int luaopen_CBaseEntity_shared(lua_State *L) {
+    luaL_getmetatable(L, LUA_BASEENTITYLIBNAME);
+    if (lua_isnoneornil(L, -1)) {
+        lua_pop(L, 1);
+        luaL_newmetatable(L, LUA_BASEENTITYLIBNAME);
+    }
+    luaL_register(L, NULL, CBaseEntitymeta);
+    lua_pushstring(L, "entity");
+    lua_setfield(L, -2, "__type"); /* metatable.__type = "entity" */
+    luaL_register( L, LUA_GNAME, CBaseEntity_funcs );
     lua_pop(L, 1);
     luaL_newmetatable(L, LUA_BASEENTITYLIBNAME);
   }
