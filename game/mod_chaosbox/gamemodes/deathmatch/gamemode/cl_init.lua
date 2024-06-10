@@ -7,65 +7,30 @@
 
 include( "shared.lua" )
 
-function GM:ActivateClientUI()
-end
+-- Have the flashlight appear to come from the weapon's muzzle flash position
+function GM:PlayerUpdateFlashlight(client, position, vecForward, vecRight, vecUp, nDistance)
+	local vm = client:GetViewModel()
 
-function GM:AdjustEngineViewport(x, y, width, height)
-end
+	if (vm == NULL) then
+		return
+	end
 
-function GM:CanShowSpeakerLabels()
-end
+	local iAttachment = vm:LookupAttachment("muzzle")
 
-function GM:CreateDefaultPanels()
-end
+	if (iAttachment < 0) then
+		return
+	end
 
-function GM:DrawHeadLabels(client)
-end
+	local vecOrigin = Vector()
 
-function GM:GetPlayerTextColor(entindex, r, g, b)
-end
+	--Tony; EyeAngles will return proper whether it's local player or not.
+	local eyeAngles = client:EyeAngles()
 
-function GM:HideClientUI()
-end
+	vm:GetAttachment(iAttachment, vecOrigin, eyeAngles)
 
-function GM:HudElementShouldDraw(pElementName)
-end
+	local vForward = Vector()
+	AngleVectors(eyeAngles, vecForward, vecRight, vecUp)
+	position = vecOrigin
 
-function GM:HudViewportPaint()
-end
-
-function GM:KeyInput(down, keynum, pszCurrentBinding)
-end
-
-function GM:LevelInitPreEntity()
-end
-
-function GM:LevelInitPostEntity()
-end
-
-function GM:OnScreenSizeChanged(iOldWide, iOldTall)
-end
-
-function GM:PlayerUpdateFlashlight( pHL2MPPlayer, position, vecForward, vecRight, vecUp, nDistance )
-end
-
-function GM:ShouldDrawCrosshair()
-end
-
-function GM:ShouldDrawDetailObjects()
-end
-
-function GM:ShouldDrawEntity(pEnt)
-end
-
-function GM:ShouldDrawFog()
-end
-
-function GM:ShouldDrawLocalPlayer()
-end
-
-function GM:ShouldDrawParticles()
-end
-
-function GM:ShouldDrawViewModel()
+	return position, vecForward, vecRight, vecUp, nDistance
 end

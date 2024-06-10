@@ -83,4 +83,8 @@ game/experiment/materials/**/*.vmt
 game/experiment/download/*
 game/experiment/cache/*
 game/experiment/**/*.ztmp
+<<<<<<< HEAD
 >>>>>>> 1726ba53a (Add download of resources (testing))
+=======
+game/experiment/downloadlists/*
+>>>>>>> 6e4b738f5 (Fix gamemode inheritance)

@@ -1003,9 +1003,7 @@ bool CServerGameDLL::LevelInit(const char *pMapName, char const *pMapEntities,
     luasrc_LoadEntities();
     // luasrc_LoadEffects();
 
-    // Andrew; loadup base gamemode.
     luasrc_LoadGamemode(LUA_BASE_GAMEMODE);
-
     luasrc_LoadGamemode(gamemode.GetString());
     luasrc_SetGamemode(gamemode.GetString());
 
