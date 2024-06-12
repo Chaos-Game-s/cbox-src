@@ -1520,3 +1520,7 @@ $Project "ZipAlign"
 {
 	"utils\zipalign\ZipAlign.vpc" [$WIN32]
 }
+$Project "lua54"
+{
+	"lua\lua.vpc" [$WINDOWS||$X360||$POSIX]
+}
