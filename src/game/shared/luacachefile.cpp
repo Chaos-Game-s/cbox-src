@@ -50,13 +50,27 @@ LUA_API void luasrc_AddFileToLcf(const char *relativename,
 }
 
 #ifdef CLIENT_DLL
+<<<<<<< HEAD
 
 LUA_API void luasrc_ExtractLcf() {
+=======
+LUA_API void luasrc_ExtractLcf()
+{
+>>>>>>> 44fc2062a (hack continue in (todo: just mod lua at this point))
     INetworkStringTable *downloadables =
         networkstringtable->FindTable("downloadables");
     const char *pFilename = NULL;
+<<<<<<< HEAD
     for (int i = 0; i < downloadables->GetNumStrings(); i++) {
         pFilename = downloadables->GetString(i);
+=======
+    const char *gamePath = engine->GetGameDirectory();
+
+    for ( int i = 0; i < downloadables->GetNumStrings(); i++ )
+    {
+        pFilename = downloadables->GetString( i );
+
+>>>>>>> 44fc2062a (hack continue in (todo: just mod lua at this point))
         char ext[10];
         Q_ExtractFileExtension(pFilename, ext, sizeof(ext));
 
@@ -117,9 +131,18 @@ LUA_API void luasrc_ExtractLcf() {
             break;
         }
     }
+<<<<<<< HEAD
+=======
+
+    // Add the cache folder to the Lua path, so clients can load files from it.
+    char cacheDirectoryPath[MAX_PATH];
+    Q_strncpy( cacheDirectoryPath, gamePath, sizeof( cacheDirectoryPath ) );
+    Q_strncat( cacheDirectoryPath, "\\" LUA_PATH_CACHE, sizeof( cacheDirectoryPath ), COPY_ALL_CHARACTERS );
+    filesystem->AddSearchPath( cacheDirectoryPath, "MOD" );
+>>>>>>> 44fc2062a (hack continue in (todo: just mod lua at this point))
 }
 
-#else
+#else // SERVER:
 
 static CUtlDict<char *, int> m_LcfDatabase;
 
@@ -143,9 +166,16 @@ static const char *UTIL_StripAddonName(char *addonName) {
     return addonName + i;
 }
 
+<<<<<<< HEAD
 static int luasrc_sendfile(lua_State *L) {
     // Can only send files in multiplayer!!!
     if (gpGlobals->maxClients == 1) {
+=======
+extern int luasrc_sendfile( lua_State *L )
+{
+    if ( gpGlobals->maxClients == 1 )
+    {
+>>>>>>> 44fc2062a (hack continue in (todo: just mod lua at this point))
         return 0;
     }
     lua_Debug ar1;
@@ -158,6 +188,7 @@ static int luasrc_sendfile(lua_State *L) {
     Q_StrRight(ar2.source, iLength - 1, source, sizeof(source));
     Q_StripFilename(source);
     char filename[MAX_PATH];
+<<<<<<< HEAD
     Q_snprintf(filename, sizeof(filename), "%s\\%s", source,
                luaL_checkstring(L, 1));
     char relativePath[MAX_PATH];
@@ -179,6 +210,43 @@ static int luasrc_sendfile(lua_State *L) {
         DevMsg("LCF: couldn't find relative path to %s!\n", filename);
     }
     return 0;
+=======
+    Q_snprintf( filename, sizeof( filename ), "%s\\%s", source, luaL_checkstring( L, 1 ) );
+
+    luasrc_sendfile( L, filename );
+    
+    return 0;
+}
+
+void luasrc_sendfile( lua_State *L, const char *fullPath )
+{
+    char relativePath[MAX_PATH];
+
+    if ( !filesystem->FullPathToRelativePathEx( fullPath, "MOD", relativePath, MAX_PATH ) )
+    {
+        DevMsg( "LCF: couldn't find relative path to %s!\n", fullPath );
+        return;
+    }
+
+    const char *zipPath = relativePath;
+
+    if ( Q_strnicmp( relativePath, "addons/", 7 ) )
+    {
+        char *substring = strstr( relativePath, "addons\\" );
+
+        if ( substring )
+        {
+            *substring = 0;
+            zipPath = UTIL_StripAddonName( relativePath + 7 );
+        }
+    }
+
+    char gamePath[256];
+    engine->GetGameDir( gamePath, 256 );
+
+    DevMsg( "LCF: adding %s to the Lua cache file...\n", zipPath );
+    m_LcfDatabase.Insert( zipPath, strdup( fullPath ) );
+>>>>>>> 44fc2062a (hack continue in (todo: just mod lua at this point))
 }
 
 static const luaL_Reg lcf_funcs[] = {{"sendfile", luasrc_sendfile},
