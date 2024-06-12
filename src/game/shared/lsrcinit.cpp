@@ -99,8 +99,14 @@ static const luaL_Reg luasrclibs[] = {
 #ifdef CLIENT_DLL
     {LUA_VGUILIBNAME, luaopen_vgui},
 #endif
-    {LUA_VMATRIXLIBNAME, luaopen_VMatrix},
-    {NULL, NULL}};
+    { LUA_VMATRIXLIBNAME, luaopen_VMatrix },
+
+#ifdef CLIENT_DLL
+    { LUA_BFREADLIBNAME, luaopen_bf_read },
+#endif
+    { LUA_UMSGLIBNAME, luaopen_umsg },
+    { LUA_NETLIBNAME, luaopen_net },
+    { NULL, NULL } };
 
 LUALIB_API void luasrc_openlibs(lua_State *L) {
     const luaL_Reg *lib = luasrclibs;
