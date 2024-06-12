@@ -10,6 +10,35 @@ GM.Developer = "Experiment" -- Most code by Facepunch Studios
 include("enumerations.lua")
 
 --[[
+	Renames and other polyfills
+--]]
+util = {
+	PrecacheModel = _R.CBaseEntity.PrecacheModel,
+	PrecacheSound = _R.CBaseEntity.PrecacheSound,
+}
+
+local registry = debug.getregistry()
+function FindMetaTable(name)
+	if (name == "Entity") then
+		name = "CBaseEntity"
+	elseif (name == "Player") then
+		name = "CBasePlayer"
+	end
+
+	return registry[name]
+end
+
+RealFrameTime = gpGlobals.absoluteframetime
+CurTime = gpGlobals.curtime
+FrameNumber = gpGlobals.framecount
+FrameTime = gpGlobals.frametime
+engine.TickCount = gpGlobals.tickcount
+engine.TickInterval = gpGlobals.interval_per_tick
+
+Material = gpGlobals.FindMaterial
+CreateMaterial = gpGlobals.CreateMaterial
+
+--[[
 	All our libraries are plural, while with Garry's Mod they vary between plural and singular.
 --]]
 concommand = require("concommands")
