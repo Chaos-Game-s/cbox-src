@@ -28,6 +28,9 @@
     <Filter Include="Source Files\game_controls">
       <UniqueIdentifier>{1E7DB91A-DC0A-B17F-617D-4C4FB3FA7A3E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HL1 Content">
+      <UniqueIdentifier>{B235468E-BC8E-AD69-E926-C9A4B2BB9EFD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\HL2 DLL">
       <UniqueIdentifier>{3C43D38A-46AF-2183-A5E5-44383B1D2652}</UniqueIdentifier>
     </Filter>
@@ -3054,6 +3057,51 @@
     </ClCompile>
     <ClCompile Include="game_controls\vguitextwindow.cpp">
       <Filter>Source Files\game_controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1_basecombatweapon_shared.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="hl1\hl1_c_rpg_rocket.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="hl1\hl1_c_weapon__stubs.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="hl1\hl1_fx_gauss.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="hl1\hl1_fx_shelleject.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\server\hl1\hl1_weapon_crowbar.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_basecombatweapon_shared.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_357.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_egon.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_gauss.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_glock.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_handgrenade.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_hornetgun.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_mp5.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\hl1\hl1mp_weapon_sachel.cpp">
+      <Filter>Source Files\HL1 Content</Filter>
     </ClCompile>
     <ClCompile Include="..\..\game\shared\hl2\basehlcombatweapon_shared.cpp">
       <Filter>Source Files\HL2 DLL</Filter>

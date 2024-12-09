@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Server (HL2MP)</ProjectName>
+    <ProjectName>Server (ChaosBox)</ProjectName>
     <ProjectGuid>{33B7DFDC-BECB-3678-1190-6C951E393EB3}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\hl2mp\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\hl2mp\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\chaosbox\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\chaosbox\</IntDir>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
     <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
@@ -48,8 +48,8 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\hl2mp\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\hl2mp\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\chaosbox\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\chaosbox\</IntDir>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
     <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
@@ -60,13 +60,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
-      <Command>if EXIST ..\..\..\game\hl2mp\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+      <Command>if EXIST ..\..\..\game\chaosbox\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
     </PreBuildEvent>
     <ClCompile>
       <AdditionalOptions>/Zm200 /Gw /Zc:inline</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_hl2mp;..\..\thirdparty\protobuf-2.6.1\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;.\hl2;.\hl2mp;..\..\game\shared\hl2mp</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=server;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_DLL;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\game\server;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_chaosbox;..\..\thirdparty\protobuf-2.6.1\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;.\hl2;.\hl2mp;..\..\game\shared\hl2mp</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=server;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_DLL;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\server;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -127,15 +127,15 @@
       <OutputFile>$(OutDir)/server.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Message>Publishing to ..\..\..\game\hl2mp\bin\.</Message>
-      <Command>if not exist &quot;..\..\..\game\hl2mp\bin\.&quot; mkdir &quot;..\..\..\game\hl2mp\bin\.&quot;&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\hl2mp\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\hl2mp\bin\.\$(TargetName).pdb&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\hl2mp\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
+      <Message>Publishing to ..\..\..\game\chaosbox\bin\.</Message>
+      <Command>if not exist &quot;..\..\..\game\chaosbox\bin\.&quot; mkdir &quot;..\..\..\game\chaosbox\bin\.&quot;&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\chaosbox\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\chaosbox\bin\.\$(TargetName).pdb&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\chaosbox\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
     </PostBuildEvent>
     <CustomBuildStep>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
-      <Command>if EXIST ..\..\..\game\hl2mp\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+      <Command>if EXIST ..\..\..\game\chaosbox\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
     </PreBuildEvent>
     <ClCompile>
       <AdditionalOptions>/Zm200 /Zo /Oy- /Gw /Zc:inline</AdditionalOptions>
@@ -143,8 +143,8 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_hl2mp;..\..\thirdparty\protobuf-2.6.1\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;.\hl2;.\hl2mp;..\..\game\shared\hl2mp</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=server;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_DLL;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\game\server;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\server\generated_proto_chaosbox;..\..\thirdparty\protobuf-2.6.1\src;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\econ;..\..\game\server\NextBot;..\..\game\shared\hl2;.\hl2;.\hl2mp;..\..\game\shared\hl2mp</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=server;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_DLL;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\server;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -207,8 +207,8 @@
       <OutputFile>$(OutDir)/server.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Message>Publishing to ..\..\..\game\hl2mp\bin\.</Message>
-      <Command>if not exist &quot;..\..\..\game\hl2mp\bin\.&quot; mkdir &quot;..\..\..\game\hl2mp\bin\.&quot;&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\hl2mp\bin\.\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\hl2mp\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\hl2mp\bin\.\$(TargetName).pdb&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\hl2mp\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
+      <Message>Publishing to ..\..\..\game\chaosbox\bin\.</Message>
+      <Command>if not exist &quot;..\..\..\game\chaosbox\bin\.&quot; mkdir &quot;..\..\..\game\chaosbox\bin\.&quot;&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\chaosbox\bin\.\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\chaosbox\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\..\vpc_scripts\valve_p4_edit.cmd &quot;..\..\..\game\chaosbox\bin\.\$(TargetName).pdb&quot; ..\..&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\chaosbox\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
     </PostBuildEvent>
     <CustomBuildStep>
     </CustomBuildStep>
@@ -1485,11 +1485,11 @@
     </CustomBuild>
     <CustomBuild Include="server_hl2mp.vpc">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running VPC CRC Check - server_hl2mp.vpc</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\game\server\server_hl2mp.vpc.sentinel</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\game\server\server_hl2mp.vpc.sentinel</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\cbox-src\game\server\server_hl2mp.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\hp\Documents\cbox-src\game\server\server_hl2mp.vpc.sentinel</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running VPC CRC Check - server_hl2mp.vpc</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\game\server\server_hl2mp.vpc.sentinel</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\game\server\server_hl2mp.vpc.sentinel</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;server_hl2mp.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\cbox-src\game\server\server_hl2mp.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\hp\Documents\cbox-src\game\server\server_hl2mp.vpc.sentinel</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
