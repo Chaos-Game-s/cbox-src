@@ -56,9 +56,9 @@ BEGIN_NETWORK_TABLE( CWeaponSatchel, DT_WeaponSatchel )
 #endif
 END_NETWORK_TABLE()
 
-LINK_ENTITY_TO_CLASS( weapon_satchel, CWeaponSatchel );
+LINK_ENTITY_TO_CLASS( weapon_hl1_satchel, CWeaponSatchel );
 
-PRECACHE_WEAPON_REGISTER( weapon_satchel );
+PRECACHE_WEAPON_REGISTER( weapon_hl1_satchel );
 
 //IMPLEMENT_SERVERCLASS_ST( CWeaponSatchel, DT_WeaponSatchel )
 //END_SEND_TABLE()

@@ -2,13 +2,13 @@
 //
 // Purpose: 
 //
-// $NoKeywords: $
+// I like my cheese drippy bruh - uhhhh
 //=============================================================================//
 
 
 #include "cbase.h"
 #include "c_weapon__stubs.h"
-#include "hl1_basecombatweapon_shared.h"
+#include "hl1\hl1_basecombatweapon_shared.h"
 
 
 STUB_WEAPON_CLASS( foo_weapon_basebludgeonweapon, BaseBludgeonWeapon, C_BaseCombatWeapon );
@@ -31,4 +31,4 @@ STUB_WEAPON_CLASS( weapon_physcannon, PhysgunCannon, C_BaseCombatWeapon );
 //STUB_WEAPON_CLASS( weapon_shotgun,		WeaponShotgun,		C_BaseHL1CombatWeapon );
 STUB_WEAPON_CLASS( weapon_snark,		WeaponSnark,		C_BaseHL1CombatWeapon );
 STUB_WEAPON_CLASS( weapon_tripmine,		WeaponTripMine,		C_BaseHL1CombatWeapon );
-STUB_WEAPON_CLASS( weapon_cubemap,		WeaponCubemap,		C_BaseCombatWeapon );
+//STUB_WEAPON_CLASS( weapon_cubemap,		WeaponCubemap,		C_BaseCombatWeapon );

@@ -86,8 +86,8 @@ BEGIN_PREDICTION_DATA( CWeaponShotgun )
 #endif
 END_PREDICTION_DATA()
 
-LINK_ENTITY_TO_CLASS( weapon_shotgun, CWeaponShotgun );
-PRECACHE_WEAPON_REGISTER(weapon_shotgun);
+LINK_ENTITY_TO_CLASS( weapon_hl1_shotgun, CWeaponShotgun );
+PRECACHE_WEAPON_REGISTER(weapon_hl1_shotgun);
 
 //IMPLEMENT_SERVERCLASS_ST( CWeaponShotgun, DT_WeaponShotgun )
 //END_SEND_TABLE()

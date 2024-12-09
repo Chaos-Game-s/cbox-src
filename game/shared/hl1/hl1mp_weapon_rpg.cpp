@@ -1,3 +1,4 @@
+
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose:		RPG
@@ -37,44 +38,44 @@
 extern ConVar sk_plr_dmg_rpg;
 
 
-void TE_BeamFollow( IRecipientFilter& filter, float delay,
-	int iEntIndex, int modelIndex, int haloIndex, float life, float width, float endWidth, 
-	float fadeLength,float r, float g, float b, float a );
+void TE_BeamFollow(IRecipientFilter& filter, float delay,
+	int iEntIndex, int modelIndex, int haloIndex, float life, float width, float endWidth,
+	float fadeLength, float r, float g, float b, float a);
 
 #define	RPG_LASER_SPRITE	"sprites/redglow_mp1"
 
 class CLaserDot : public CBaseEntity
 {
-	DECLARE_CLASS( CLaserDot, CBaseEntity );
+	DECLARE_CLASS(CLaserDot, CBaseEntity);
 public:
 
-	CLaserDot( void );
-	~CLaserDot( void );
+	CLaserDot(void);
+	~CLaserDot(void);
 
-	static CLaserDot *Create( const Vector &origin, CBaseEntity *pOwner = NULL, bool bVisibleDot = true );
+	static CLaserDot* Create(const Vector& origin, CBaseEntity* pOwner = NULL, bool bVisibleDot = true);
 
-	void	SetTargetEntity( CBaseEntity *pTarget ) { m_hTargetEnt = pTarget; }
-	CBaseEntity *GetTargetEntity( void ) { return m_hTargetEnt; }
+	void	SetTargetEntity(CBaseEntity* pTarget) { m_hTargetEnt = pTarget; }
+	CBaseEntity* GetTargetEntity(void) { return m_hTargetEnt; }
 
-	void	SetLaserPosition( const Vector &origin, const Vector &normal );
+	void	SetLaserPosition(const Vector& origin, const Vector& normal);
 	Vector	GetChasePosition();
-	void	TurnOn( void );
-	void	TurnOff( void );
+	void	TurnOn(void);
+	void	TurnOff(void);
 	bool	IsOn() const { return m_bIsOn; }
 
-	void	Toggle( void );
+	void	Toggle(void);
 
 	int		ObjectCaps() { return (BaseClass::ObjectCaps() & ~FCAP_ACROSS_TRANSITION) | FCAP_DONT_SAVE; }
 
-	void	MakeInvisible( void );
+	void	MakeInvisible(void);
 
 #ifdef CLIENT_DLL
 
-	virtual bool			IsTransparent( void ) { return true; }
-	virtual RenderGroup_t	GetRenderGroup( void ) { return RENDER_GROUP_TRANSLUCENT_ENTITY; }
-	virtual int				DrawModel( int flags );
-	virtual void			OnDataChanged( DataUpdateType_t updateType );
-	virtual bool			ShouldDraw( void ) { return (IsEffectActive(EF_NODRAW)==false); }
+	virtual bool			IsTransparent(void) { return true; }
+	virtual RenderGroup_t	GetRenderGroup(void) { return RENDER_GROUP_TRANSLUCENT_ENTITY; }
+	virtual int				DrawModel(int flags);
+	virtual void			OnDataChanged(DataUpdateType_t updateType);
+	virtual bool			ShouldDraw(void) { return (IsEffectActive(EF_NODRAW) == false); }
 
 	CMaterialReference	m_hSpriteMaterial;
 #endif
@@ -83,13 +84,13 @@ protected:
 	Vector				m_vecSurfaceNormal;
 	EHANDLE				m_hTargetEnt;
 	bool				m_bVisibleLaserDot;
-//	bool				m_bIsOn;
-	CNetworkVar( bool, m_bIsOn );
+	//	bool				m_bIsOn;
+	CNetworkVar(bool, m_bIsOn);
 
 	DECLARE_NETWORKCLASS();
 	DECLARE_DATADESC();
 public:
-	CLaserDot			*m_pNext;
+	CLaserDot* m_pNext;
 };
 
 
@@ -100,19 +101,19 @@ public:
 //=============================================================================
 
 
-BEGIN_DATADESC( CRpgRocket )
-	DEFINE_FIELD( m_hOwner,			FIELD_EHANDLE ),
-	DEFINE_FIELD( m_vecAbsVelocity,	FIELD_VECTOR ),
-	DEFINE_FIELD( m_flIgniteTime,	FIELD_TIME ),
-	//DEFINE_FIELD( m_iTrail,			FIELD_INTEGER ),
+BEGIN_DATADESC(CRpgRocket)
+DEFINE_FIELD(m_hOwner, FIELD_EHANDLE),
+DEFINE_FIELD(m_vecAbsVelocity, FIELD_VECTOR),
+DEFINE_FIELD(m_flIgniteTime, FIELD_TIME),
+//DEFINE_FIELD( m_iTrail,			FIELD_INTEGER ),
 
-	// Function Pointers
-	DEFINE_ENTITYFUNC( RocketTouch ),
-	DEFINE_THINKFUNC( IgniteThink ),
-	DEFINE_THINKFUNC( SeekThink ),
+// Function Pointers
+DEFINE_ENTITYFUNC(RocketTouch),
+DEFINE_THINKFUNC(IgniteThink),
+DEFINE_THINKFUNC(SeekThink),
 END_DATADESC()
 
-LINK_ENTITY_TO_CLASS( rpg_rocket, CRpgRocket );
+LINK_ENTITY_TO_CLASS(rpg_rocket, CRpgRocket);
 
 IMPLEMENT_SERVERCLASS_ST(CRpgRocket, DT_RpgRocket)
 END_SEND_TABLE()
@@ -127,12 +128,12 @@ CRpgRocket::CRpgRocket()
 //
 //
 //-----------------------------------------------------------------------------
-void CRpgRocket::Precache( void )
+void CRpgRocket::Precache(void)
 {
-	PrecacheModel( "models/rpgrocket.mdl" );
-	PrecacheModel( "sprites/animglow01.vmt" );
+	PrecacheModel("models/rpgrocket.mdl");
+	PrecacheModel("sprites/animglow01.vmt");
 
-	PrecacheScriptSound( "Weapon_RPG.RocketIgnite" );
+	PrecacheScriptSound("Weapon_RPG.RocketIgnite");
 
 	m_iTrail = PrecacheModel("sprites/smoke.vmt");
 }
@@ -142,33 +143,33 @@ void CRpgRocket::Precache( void )
 //
 //
 //-----------------------------------------------------------------------------
-void CRpgRocket::Spawn( void )
+void CRpgRocket::Spawn(void)
 {
 	Precache();
 
-	SetSolid( SOLID_BBOX );
+	SetSolid(SOLID_BBOX);
 	SetModel("models/rpgrocket.mdl");
-	UTIL_SetSize( this, -Vector(0,0,0), Vector(0,0,0) );
+	UTIL_SetSize(this, -Vector(0, 0, 0), Vector(0, 0, 0));
 
-	SetTouch( &CRpgRocket::RocketTouch );
+	SetTouch(&CRpgRocket::RocketTouch);
 
-	SetMoveType( MOVETYPE_FLYGRAVITY, MOVECOLLIDE_FLY_BOUNCE );
-	SetThink( &CRpgRocket::IgniteThink );
-	
-	SetNextThink( gpGlobals->curtime + 0.4f );
+	SetMoveType(MOVETYPE_FLYGRAVITY, MOVECOLLIDE_FLY_BOUNCE);
+	SetThink(&CRpgRocket::IgniteThink);
+
+	SetNextThink(gpGlobals->curtime + 0.4f);
 
 	QAngle angAngs;
 	Vector vecFwd;
 
 	angAngs = GetAbsAngles();
 	angAngs.x -= 30;
-	AngleVectors( angAngs, &vecFwd );
-	SetAbsVelocity( vecFwd * 250 );
+	AngleVectors(angAngs, &vecFwd);
+	SetAbsVelocity(vecFwd * 250);
 
-	SetGravity( UTIL_ScaleForGravity( 400 ) );	// use a lower gravity for rockets
+	SetGravity(UTIL_ScaleForGravity(400));	// use a lower gravity for rockets
 
-	m_flDamage	= sk_plr_dmg_rpg.GetFloat();
-	m_DmgRadius	= m_flDamage * 2.5;
+	m_flDamage = sk_plr_dmg_rpg.GetFloat();
+	m_DmgRadius = m_flDamage * 2.5;
 }
 
 
@@ -176,36 +177,36 @@ void CRpgRocket::Spawn( void )
 // Purpose: 
 // Input  : *pOther - 
 //-----------------------------------------------------------------------------
-void CRpgRocket::RocketTouch( CBaseEntity *pOther )
+void CRpgRocket::RocketTouch(CBaseEntity* pOther)
 {
-	if ( !pOther->IsSolid() || pOther->IsSolidFlagSet(FSOLID_VOLUME_CONTENTS) )
+	if (!pOther->IsSolid() || pOther->IsSolidFlagSet(FSOLID_VOLUME_CONTENTS))
 		return;
 
-	if ( m_hOwner != NULL )
+	if (m_hOwner != NULL)
 	{
 		m_hOwner->NotifyRocketDied();
 	}
 
-	StopSound( "Weapon_RPG.RocketIgnite" );
-	ExplodeTouch( pOther );
+	StopSound("Weapon_RPG.RocketIgnite");
+	ExplodeTouch(pOther);
 }
 
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CRpgRocket::IgniteThink( void )
+void CRpgRocket::IgniteThink(void)
 {
-	SetMoveType( MOVETYPE_FLY );
+	SetMoveType(MOVETYPE_FLY);
 
-	AddEffects( EF_DIMLIGHT );
+	AddEffects(EF_DIMLIGHT);
 
-	EmitSound( "Weapon_RPG.RocketIgnite" );
+	EmitSound("Weapon_RPG.RocketIgnite");
 
-	SetThink( &CRpgRocket::SeekThink );
-	SetNextThink( gpGlobals->curtime + 0.1f );
+	SetThink(&CRpgRocket::SeekThink);
+	SetNextThink(gpGlobals->curtime + 0.1f);
 
 	CBroadcastRecipientFilter filter;
-	TE_BeamFollow( filter, 0.0,
+	TE_BeamFollow(filter, 0.0,
 		entindex(),
 		m_iTrail,
 		0,
@@ -216,7 +217,7 @@ void CRpgRocket::IgniteThink( void )
 		224,
 		224,
 		255,
-		255 );
+		255);
 
 	m_flIgniteTime = gpGlobals->curtime;
 }
@@ -226,36 +227,36 @@ void CRpgRocket::IgniteThink( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CRpgRocket::SeekThink( void )
+void CRpgRocket::SeekThink(void)
 {
-	CBaseEntity *pOther = NULL;
+	CBaseEntity* pOther = NULL;
 	Vector vecTarget;
 	Vector vecFwd;
 	Vector vecDir;
 	float flDist, flMax, flDot;
 	trace_t tr;
 
-	AngleVectors( GetAbsAngles(), &vecFwd );
+	AngleVectors(GetAbsAngles(), &vecFwd);
 
 	vecTarget = vecFwd;
 	flMax = 4096;
-	
-	// Examine all entities within a reasonable radius
-	while ( (pOther = gEntList.FindEntityByClassname( pOther, "laser_spot" ) ) != NULL)
-	{
-		CLaserDot *pDot = dynamic_cast<CLaserDot*>(pOther);
 
-//		if ( pDot->IsActive() )
-		if ( pDot->IsOn() )
+	// Examine all entities within a reasonable radius
+	while ((pOther = gEntList.FindEntityByClassname(pOther, "laser_spot")) != NULL)
+	{
+		CLaserDot* pDot = dynamic_cast<CLaserDot*>(pOther);
+
+		//		if ( pDot->IsActive() )
+		if (pDot->IsOn())
 		{
-			UTIL_TraceLine( GetAbsOrigin(), pDot->GetAbsOrigin(), MASK_SHOT, this, COLLISION_GROUP_NONE, &tr );
-			if ( tr.fraction >= 0.90 )
+			UTIL_TraceLine(GetAbsOrigin(), pDot->GetAbsOrigin(), MASK_SHOT, this, COLLISION_GROUP_NONE, &tr);
+			if (tr.fraction >= 0.90)
 			{
 				vecDir = pDot->GetAbsOrigin() - GetAbsOrigin();
-				flDist = VectorLength( vecDir );
-				VectorNormalize( vecDir );
-				flDot = DotProduct( vecFwd, vecDir );
-				if ( (flDot > 0) && (flDist * (1 - flDot) < flMax) )
+				flDist = VectorLength(vecDir);
+				VectorNormalize(vecDir);
+				flDot = DotProduct(vecFwd, vecDir);
+				if ((flDot > 0) && (flDist * (1 - flDot) < flMax))
 				{
 					flMax = flDist * (1 - flDot);
 					vecTarget = vecDir;
@@ -265,57 +266,57 @@ void CRpgRocket::SeekThink( void )
 	}
 
 	QAngle vecAng;
-	VectorAngles( vecTarget, vecAng );
-	SetAbsAngles( vecAng );
+	VectorAngles(vecTarget, vecAng);
+	SetAbsAngles(vecAng);
 
 	// this acceleration and turning math is totally wrong, but it seems to respond well so don't change it.
 	float flSpeed = GetAbsVelocity().Length();
-	if ( gpGlobals->curtime - m_flIgniteTime < 1.0 )
+	if (gpGlobals->curtime - m_flIgniteTime < 1.0)
 	{
-		SetAbsVelocity( GetAbsVelocity() * 0.2 + vecTarget * (flSpeed * 0.8 + 400) );
-		if ( GetWaterLevel() == 3 )
+		SetAbsVelocity(GetAbsVelocity() * 0.2 + vecTarget * (flSpeed * 0.8 + 400));
+		if (GetWaterLevel() == 3)
 		{
 			// go slow underwater
-			if ( GetAbsVelocity().Length() > 300 )
+			if (GetAbsVelocity().Length() > 300)
 			{
 				Vector vecVel = GetAbsVelocity();
-				VectorNormalize( vecVel );
-				SetAbsVelocity( vecVel * 300 );
+				VectorNormalize(vecVel);
+				SetAbsVelocity(vecVel * 300);
 			}
 
-			UTIL_BubbleTrail( GetAbsOrigin() - GetAbsVelocity() * 0.1, GetAbsOrigin(), 4 );
-		} 
-		else 
+			UTIL_BubbleTrail(GetAbsOrigin() - GetAbsVelocity() * 0.1, GetAbsOrigin(), 4);
+		}
+		else
 		{
-			if ( GetAbsVelocity().Length() > 2000 )
+			if (GetAbsVelocity().Length() > 2000)
 			{
 				Vector vecVel = GetAbsVelocity();
-				VectorNormalize( vecVel );
-				SetAbsVelocity( vecVel * 2000 );
+				VectorNormalize(vecVel);
+				SetAbsVelocity(vecVel * 2000);
 			}
 		}
 	}
 	else
 	{
-		if ( IsEffectActive( EF_DIMLIGHT ) )
+		if (IsEffectActive(EF_DIMLIGHT))
 		{
 			ClearEffects();
 		}
 
-		SetAbsVelocity( GetAbsVelocity() * 0.2 + vecTarget * flSpeed * 0.798 );
+		SetAbsVelocity(GetAbsVelocity() * 0.2 + vecTarget * flSpeed * 0.798);
 
-		if ( GetWaterLevel() == 0 && GetAbsVelocity().Length() < 1500 )
+		if (GetWaterLevel() == 0 && GetAbsVelocity().Length() < 1500)
 		{
 			Detonate();
 		}
 	}
 
-	SetNextThink( gpGlobals->curtime + 0.1f );
+	SetNextThink(gpGlobals->curtime + 0.1f);
 }
 
-void CRpgRocket::Detonate( void )
+void CRpgRocket::Detonate(void)
 {
-	StopSound( "Weapon_RPG.RocketIgnite" );
+	StopSound("Weapon_RPG.RocketIgnite");
 	BaseClass::Detonate();
 }
 
@@ -328,13 +329,13 @@ void CRpgRocket::Detonate( void )
 //
 // Output : CRpgRocket
 //-----------------------------------------------------------------------------
-CRpgRocket *CRpgRocket::Create( const Vector &vecOrigin, const QAngle &angAngles, CBasePlayer *pentOwner )
+CRpgRocket* CRpgRocket::Create(const Vector& vecOrigin, const QAngle& angAngles, CBasePlayer* pentOwner)
 {
-	CRpgRocket *pRocket = (CRpgRocket *)CreateEntityByName( "rpg_rocket" );
-	UTIL_SetOrigin( pRocket, vecOrigin );
-	pRocket->SetAbsAngles( angAngles );
+	CRpgRocket* pRocket = (CRpgRocket*)CreateEntityByName("rpg_rocket");
+	UTIL_SetOrigin(pRocket, vecOrigin);
+	pRocket->SetAbsAngles(angAngles);
 	pRocket->Spawn();
-	pRocket->SetOwnerEntity( pentOwner );
+	pRocket->SetOwnerEntity(pentOwner);
 
 	return pRocket;
 }
@@ -346,57 +347,57 @@ CRpgRocket *CRpgRocket::Create( const Vector &vecOrigin, const QAngle &angAngles
 // Laser Dot
 //=============================================================================
 
-IMPLEMENT_NETWORKCLASS_ALIASED( LaserDot, DT_LaserDot )
+IMPLEMENT_NETWORKCLASS_ALIASED(LaserDot, DT_LaserDot)
 
-BEGIN_NETWORK_TABLE( CLaserDot, DT_LaserDot )
+BEGIN_NETWORK_TABLE(CLaserDot, DT_LaserDot)
 #ifdef CLIENT_DLL
-	RecvPropBool( RECVINFO( m_bIsOn ) ),
+RecvPropBool(RECVINFO(m_bIsOn)),
 #else
-	SendPropBool( SENDINFO( m_bIsOn ) ),
+SendPropBool(SENDINFO(m_bIsOn)),
 #endif
 END_NETWORK_TABLE()
 
 #ifndef CLIENT_DLL
 // a list of laser dots to search quickly
 CEntityClassList<CLaserDot> g_LaserDotList;
-template <> CLaserDot *CEntityClassList<CLaserDot>::m_pClassList = NULL;
-CLaserDot *GetLaserDotList()
+template <> CLaserDot* CEntityClassList<CLaserDot>::m_pClassList = NULL;
+CLaserDot* GetLaserDotList()
 {
 	return g_LaserDotList.m_pClassList;
 }
 
 #endif
 
-LINK_ENTITY_TO_CLASS( laser_spot, CLaserDot );
+LINK_ENTITY_TO_CLASS(laser_spot, CLaserDot);
 
-BEGIN_DATADESC( CLaserDot )
-	DEFINE_FIELD( m_vecSurfaceNormal,	FIELD_VECTOR ),
-	DEFINE_FIELD( m_hTargetEnt,			FIELD_EHANDLE ),
-	DEFINE_FIELD( m_bVisibleLaserDot,	FIELD_BOOLEAN ),
-	DEFINE_FIELD( m_bIsOn,				FIELD_BOOLEAN ),
+BEGIN_DATADESC(CLaserDot)
+DEFINE_FIELD(m_vecSurfaceNormal, FIELD_VECTOR),
+DEFINE_FIELD(m_hTargetEnt, FIELD_EHANDLE),
+DEFINE_FIELD(m_bVisibleLaserDot, FIELD_BOOLEAN),
+DEFINE_FIELD(m_bIsOn, FIELD_BOOLEAN),
 
-	//DEFINE_FIELD( m_pNext, FIELD_CLASSPTR ),	// don't save - regenerated by constructor
+//DEFINE_FIELD( m_pNext, FIELD_CLASSPTR ),	// don't save - regenerated by constructor
 END_DATADESC()
 
 
 //-----------------------------------------------------------------------------
 // Finds missiles in cone
 //-----------------------------------------------------------------------------
-CBaseEntity *CreateLaserDot( const Vector &origin, CBaseEntity *pOwner, bool bVisibleDot )
+CBaseEntity* CreateLaserDot(const Vector& origin, CBaseEntity* pOwner, bool bVisibleDot)
 {
-	return CLaserDot::Create( origin, pOwner, bVisibleDot );
+	return CLaserDot::Create(origin, pOwner, bVisibleDot);
 }
 
-void SetLaserDotTarget( CBaseEntity *pLaserDot, CBaseEntity *pTarget )
+void SetLaserDotTarget(CBaseEntity* pLaserDot, CBaseEntity* pTarget)
 {
-	CLaserDot *pDot = assert_cast< CLaserDot* >(pLaserDot );
-	pDot->SetTargetEntity( pTarget );
+	CLaserDot* pDot = assert_cast<CLaserDot*>(pLaserDot);
+	pDot->SetTargetEntity(pTarget);
 }
 
-void EnableLaserDot( CBaseEntity *pLaserDot, bool bEnable )
+void EnableLaserDot(CBaseEntity* pLaserDot, bool bEnable)
 {
-	CLaserDot *pDot = assert_cast< CLaserDot* >(pLaserDot );
-	if ( bEnable )
+	CLaserDot* pDot = assert_cast<CLaserDot*>(pLaserDot);
+	if (bEnable)
 	{
 		pDot->TurnOn();
 	}
@@ -406,19 +407,19 @@ void EnableLaserDot( CBaseEntity *pLaserDot, bool bEnable )
 	}
 }
 
-CLaserDot::CLaserDot( void )
+CLaserDot::CLaserDot(void)
 {
 	m_hTargetEnt = NULL;
 	m_bIsOn = true;
 #ifndef CLIENT_DLL
-	g_LaserDotList.Insert( this );
+	g_LaserDotList.Insert(this);
 #endif
 }
 
-CLaserDot::~CLaserDot( void )
+CLaserDot::~CLaserDot(void)
 {
 #ifndef CLIENT_DLL
-	g_LaserDotList.Remove( this );
+	g_LaserDotList.Remove(this);
 #endif
 }
 
@@ -428,25 +429,25 @@ CLaserDot::~CLaserDot( void )
 // Input  : &origin - 
 // Output : CLaserDot
 //-----------------------------------------------------------------------------
-CLaserDot *CLaserDot::Create( const Vector &origin, CBaseEntity *pOwner, bool bVisibleDot )
+CLaserDot* CLaserDot::Create(const Vector& origin, CBaseEntity* pOwner, bool bVisibleDot)
 {
 #ifndef CLIENT_DLL
-	CLaserDot *pLaserDot = (CLaserDot *) CBaseEntity::Create( "laser_spot", origin, QAngle(0,0,0) );
+	CLaserDot* pLaserDot = (CLaserDot*)CBaseEntity::Create("laser_spot", origin, QAngle(0, 0, 0));
 
-	if ( pLaserDot == NULL )
+	if (pLaserDot == NULL)
 		return NULL;
 
 	pLaserDot->m_bVisibleLaserDot = bVisibleDot;
-	pLaserDot->SetMoveType( MOVETYPE_NONE );
-	pLaserDot->AddSolidFlags( FSOLID_NOT_SOLID );
-	pLaserDot->AddEffects( EF_NOSHADOW );
-	UTIL_SetSize( pLaserDot, -Vector(6,6,6), Vector(6,6,6) );
+	pLaserDot->SetMoveType(MOVETYPE_NONE);
+	pLaserDot->AddSolidFlags(FSOLID_NOT_SOLID);
+	pLaserDot->AddEffects(EF_NOSHADOW);
+	UTIL_SetSize(pLaserDot, -Vector(6, 6, 6), Vector(6, 6, 6));
 
-	pLaserDot->SetOwnerEntity( pOwner );
+	pLaserDot->SetOwnerEntity(pOwner);
 
-	pLaserDot->AddEFlags( EFL_FORCE_CHECK_TRANSMIT );
+	pLaserDot->AddEFlags(EFL_FORCE_CHECK_TRANSMIT);
 
-	if ( !bVisibleDot )
+	if (!bVisibleDot)
 	{
 		pLaserDot->MakeInvisible();
 	}
@@ -457,9 +458,9 @@ CLaserDot *CLaserDot::Create( const Vector &origin, CBaseEntity *pOwner, bool bV
 #endif
 }
 
-void CLaserDot::SetLaserPosition( const Vector &origin, const Vector &normal )
+void CLaserDot::SetLaserPosition(const Vector& origin, const Vector& normal)
 {
-	SetAbsOrigin( origin );
+	SetAbsOrigin(origin);
 	m_vecSurfaceNormal = normal;
 }
 
@@ -471,12 +472,12 @@ Vector CLaserDot::GetChasePosition()
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CLaserDot::TurnOn( void )
+void CLaserDot::TurnOn(void)
 {
 	m_bIsOn = true;
 	RemoveEffects(EF_NODRAW);
 
-	if ( m_bVisibleLaserDot )
+	if (m_bVisibleLaserDot)
 	{
 		//BaseClass::TurnOn();
 	}
@@ -486,11 +487,11 @@ void CLaserDot::TurnOn( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CLaserDot::TurnOff( void )
+void CLaserDot::TurnOff(void)
 {
 	m_bIsOn = false;
 	AddEffects(EF_NODRAW);
-	if ( m_bVisibleLaserDot )
+	if (m_bVisibleLaserDot)
 	{
 		//BaseClass::TurnOff();
 	}
@@ -500,7 +501,7 @@ void CLaserDot::TurnOff( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CLaserDot::MakeInvisible( void )
+void CLaserDot::MakeInvisible(void)
 {
 }
 
@@ -509,21 +510,21 @@ void CLaserDot::MakeInvisible( void )
 //-----------------------------------------------------------------------------
 // Purpose: Draw our sprite
 //-----------------------------------------------------------------------------
-int CLaserDot::DrawModel( int flags )
+int CLaserDot::DrawModel(int flags)
 {
-	color32 color={255,255,255,255};
+	color32 color = { 255,255,255,255 };
 	Vector	vecAttachment, vecDir;
 	QAngle	angles;
 
 	float	scale;
 	Vector	endPos;
 
-	C_HL1MP_Player *pOwner = ToHL1MPPlayer( GetOwnerEntity() );
+	C_HL1MP_Player* pOwner = ToHL1MPPlayer(GetOwnerEntity());
 
-	if ( pOwner != NULL && pOwner->IsDormant() == false )
+	if (pOwner != NULL && pOwner->IsDormant() == false)
 	{
 		// Always draw the dot in front of our faces when in first-person
-		if ( pOwner->IsLocalPlayer() )
+		if (pOwner->IsLocalPlayer())
 		{
 			// Take our view position and orientation
 			vecAttachment = CurrentViewOrigin();
@@ -533,16 +534,16 @@ int CLaserDot::DrawModel( int flags )
 		{
 			// Take the eye position and direction
 			vecAttachment = pOwner->EyePosition();
-			
+
 			QAngle angles = pOwner->EyeAngles();
-			AngleVectors( angles, &vecDir );
+			AngleVectors(angles, &vecDir);
 		}
-		
+
 		trace_t tr;
-		UTIL_TraceLine( vecAttachment, vecAttachment + ( vecDir * MAX_TRACE_LENGTH ), MASK_SHOT, pOwner, COLLISION_GROUP_NONE, &tr );
-		
+		UTIL_TraceLine(vecAttachment, vecAttachment + (vecDir * MAX_TRACE_LENGTH), MASK_SHOT, pOwner, COLLISION_GROUP_NONE, &tr);
+
 		// Backup off the hit plane
-		endPos = tr.endpos + ( tr.plane.normal * 4.0f );
+		endPos = tr.endpos + (tr.plane.normal * 4.0f);
 	}
 	else
 	{
@@ -551,12 +552,12 @@ int CLaserDot::DrawModel( int flags )
 	}
 
 	// Randomly flutter
-	scale = 16.0f + random->RandomFloat( -4.0f, 4.0f );
+	scale = 16.0f + random->RandomFloat(-4.0f, 4.0f);
 
 	// Draw our laser dot in space
-	CMatRenderContextPtr pRenderContext( materials );
-	pRenderContext->Bind( m_hSpriteMaterial, this );
-	DrawSprite( endPos, scale, scale, color );
+	CMatRenderContextPtr pRenderContext(materials);
+	pRenderContext->Bind(m_hSpriteMaterial, this);
+	DrawSprite(endPos, scale, scale, color);
 
 	return 1;
 }
@@ -564,11 +565,11 @@ int CLaserDot::DrawModel( int flags )
 //-----------------------------------------------------------------------------
 // Purpose: Setup our sprite reference
 //-----------------------------------------------------------------------------
-void CLaserDot::OnDataChanged( DataUpdateType_t updateType )
+void CLaserDot::OnDataChanged(DataUpdateType_t updateType)
 {
-	if ( updateType == DATA_UPDATE_CREATED )
+	if (updateType == DATA_UPDATE_CREATED)
 	{
-		m_hSpriteMaterial.Init( RPG_LASER_SPRITE, TEXTURE_GROUP_CLIENT_EFFECTS );
+		m_hSpriteMaterial.Init(RPG_LASER_SPRITE, TEXTURE_GROUP_CLIENT_EFFECTS);
 	}
 }
 
@@ -578,50 +579,50 @@ void CLaserDot::OnDataChanged( DataUpdateType_t updateType )
 // RPG Weapon
 //=============================================================================
 
-LINK_ENTITY_TO_CLASS( weapon_rpg, CWeaponRPG );
+LINK_ENTITY_TO_CLASS(weapon_hl1_rpg, CWeaponRPG);
 
-PRECACHE_WEAPON_REGISTER( weapon_rpg );
+PRECACHE_WEAPON_REGISTER(weapon_hl1_rpg);
 
 //IMPLEMENT_SERVERCLASS_ST( CWeaponRPG, DT_WeaponRPG )
 //END_SEND_TABLE()
 
-IMPLEMENT_NETWORKCLASS_ALIASED( WeaponRPG, DT_WeaponRPG )
+IMPLEMENT_NETWORKCLASS_ALIASED(WeaponRPG, DT_WeaponRPG)
 
-BEGIN_DATADESC( CWeaponRPG )
-DEFINE_FIELD( m_bIntialStateUpdate,		FIELD_BOOLEAN ),
-	DEFINE_FIELD( m_bGuiding,					FIELD_BOOLEAN ),
+BEGIN_DATADESC(CWeaponRPG)
+DEFINE_FIELD(m_bIntialStateUpdate, FIELD_BOOLEAN),
+DEFINE_FIELD(m_bGuiding, FIELD_BOOLEAN),
 #ifndef CLIENT_DLL
-	DEFINE_FIELD( m_hLaserDot,				FIELD_EHANDLE ),
+DEFINE_FIELD(m_hLaserDot, FIELD_EHANDLE),
 #endif
-	DEFINE_FIELD( m_hMissile,					FIELD_EHANDLE ),
-	DEFINE_FIELD( m_bLaserDotSuspended,		FIELD_BOOLEAN ),
-	DEFINE_FIELD( m_flLaserDotReviveTime,		FIELD_TIME ),
+DEFINE_FIELD(m_hMissile, FIELD_EHANDLE),
+DEFINE_FIELD(m_bLaserDotSuspended, FIELD_BOOLEAN),
+DEFINE_FIELD(m_flLaserDotReviveTime, FIELD_TIME),
 END_DATADESC()
 
 
-BEGIN_NETWORK_TABLE( CWeaponRPG, DT_WeaponRPG )
+BEGIN_NETWORK_TABLE(CWeaponRPG, DT_WeaponRPG)
 #ifdef CLIENT_DLL
-	RecvPropBool( RECVINFO( m_bIntialStateUpdate ) ),
-	RecvPropBool( RECVINFO( m_bGuiding ) ),
-	RecvPropBool( RECVINFO( m_bLaserDotSuspended ) ),
+RecvPropBool(RECVINFO(m_bIntialStateUpdate)),
+RecvPropBool(RECVINFO(m_bGuiding)),
+RecvPropBool(RECVINFO(m_bLaserDotSuspended)),
 //	RecvPropEHandle( RECVINFO( m_hMissile ), RecvProxy_MissileDied ),
 //	RecvPropVector( RECVINFO( m_vecLaserDot ) ),
 #else
-	SendPropBool( SENDINFO( m_bIntialStateUpdate ) ),
-	SendPropBool( SENDINFO( m_bGuiding ) ),
-	SendPropBool( SENDINFO( m_bLaserDotSuspended ) ),
+SendPropBool(SENDINFO(m_bIntialStateUpdate)),
+SendPropBool(SENDINFO(m_bGuiding)),
+SendPropBool(SENDINFO(m_bLaserDotSuspended)),
 //	SendPropEHandle( SENDINFO( m_hMissile ) ),
 //	SendPropVector( SENDINFO( m_vecLaserDot ) ),
 #endif
 END_NETWORK_TABLE()
 
 
-BEGIN_PREDICTION_DATA( CWeaponRPG )
+BEGIN_PREDICTION_DATA(CWeaponRPG)
 #ifdef CLIENT_DLL
-	DEFINE_PRED_FIELD( m_bIntialStateUpdate,	FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE ),
-	DEFINE_PRED_FIELD( m_bGuiding,				FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE ),
-	DEFINE_PRED_FIELD( m_bLaserDotSuspended,	FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE ),
-	DEFINE_PRED_FIELD( m_flLaserDotReviveTime,	FIELD_FLOAT, FTYPEDESC_INSENDTABLE ),
+DEFINE_PRED_FIELD(m_bIntialStateUpdate, FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE),
+DEFINE_PRED_FIELD(m_bGuiding, FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE),
+DEFINE_PRED_FIELD(m_bLaserDotSuspended, FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE),
+DEFINE_PRED_FIELD(m_flLaserDotReviveTime, FIELD_FLOAT, FTYPEDESC_INSENDTABLE),
 #endif
 END_PREDICTION_DATA()
 
@@ -629,22 +630,22 @@ END_PREDICTION_DATA()
 //-----------------------------------------------------------------------------
 // Purpose: Constructor
 //-----------------------------------------------------------------------------
-CWeaponRPG::CWeaponRPG( void )
+CWeaponRPG::CWeaponRPG(void)
 {
-	m_bReloadsSingly		= false;
-	m_bFiresUnderwater		= true;
-	m_bGuiding				= true;
-	m_bIntialStateUpdate	= false;
-	m_bLaserDotSuspended	= false;
+	m_bReloadsSingly = false;
+	m_bFiresUnderwater = true;
+	m_bGuiding = true;
+	m_bIntialStateUpdate = false;
+	m_bLaserDotSuspended = false;
 }
 
 
 CWeaponRPG::~CWeaponRPG()
 {
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
-		UTIL_Remove( m_hLaserDot );
+		UTIL_Remove(m_hLaserDot);
 		m_hLaserDot = NULL;
 	}
 #endif
@@ -654,24 +655,24 @@ CWeaponRPG::~CWeaponRPG()
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CWeaponRPG::ItemPostFrame( void )
+void CWeaponRPG::ItemPostFrame(void)
 {
 	BaseClass::ItemPostFrame();
 
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	
-	if ( pPlayer == NULL )
+	CBasePlayer* pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer == NULL)
 		return;
 
 	//If we're pulling the weapon out for the first time, wait to draw the laser
-	if ( m_bIntialStateUpdate ) 
+	if (m_bIntialStateUpdate)
 	{
-		if ( GetActivity() != ACT_VM_DRAW )
+		if (GetActivity() != ACT_VM_DRAW)
 		{
-			if ( IsGuiding() && !m_bLaserDotSuspended )
+			if (IsGuiding() && !m_bLaserDotSuspended)
 			{
 #ifndef CLIENT_DLL
-				if ( m_hLaserDot != NULL )
+				if (m_hLaserDot != NULL)
 				{
 					m_hLaserDot->TurnOn();
 				}
@@ -687,9 +688,9 @@ void CWeaponRPG::ItemPostFrame( void )
 	}
 
 	//Player has toggled guidance state
-	if ( pPlayer->m_afButtonPressed & IN_ATTACK2 )
+	if (pPlayer->m_afButtonPressed & IN_ATTACK2)
 	{
-		if ( IsGuiding() )
+		if (IsGuiding())
 		{
 			StopGuiding();
 		}
@@ -704,25 +705,25 @@ void CWeaponRPG::ItemPostFrame( void )
 }
 
 
-void CWeaponRPG::Drop( const Vector &vecVelocity )
+void CWeaponRPG::Drop(const Vector& vecVelocity)
 {
 	StopGuiding();
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
-		UTIL_Remove( m_hLaserDot );
+		UTIL_Remove(m_hLaserDot);
 		m_hLaserDot = NULL;
 	}
 #endif
 
-	BaseClass::Drop( vecVelocity );
+	BaseClass::Drop(vecVelocity);
 }
 
 
-int CWeaponRPG::GetDefaultClip1( void ) const
+int CWeaponRPG::GetDefaultClip1(void) const
 {
-	if ( g_pGameRules->IsMultiplayer() )
+	if (g_pGameRules->IsMultiplayer())
 	{
 		// more default ammo in multiplay. 
 		return BaseClass::GetDefaultClip1() * 2;
@@ -737,63 +738,63 @@ int CWeaponRPG::GetDefaultClip1( void ) const
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CWeaponRPG::Precache( void )
+void CWeaponRPG::Precache(void)
 {
 #ifndef CLIENT_DLL
-	UTIL_PrecacheOther( "laser_spot" );
-	UTIL_PrecacheOther( "rpg_rocket" );
+	UTIL_PrecacheOther("laser_spot");
+	UTIL_PrecacheOther("rpg_rocket");
 #endif
 
-//	PrecacheModel( RPG_LASER_SPRITE );
-	PrecacheModel( "sprites/redglow_mp1.vmt" );
+	//	PrecacheModel( RPG_LASER_SPRITE );
+	PrecacheModel("sprites/redglow_mp1.vmt");
 
 	BaseClass::Precache();
 }
 
 
-bool CWeaponRPG::Deploy( void )
+bool CWeaponRPG::Deploy(void)
 {
 	m_bIntialStateUpdate = true;
 	m_bLaserDotSuspended = false;
 	CreateLaserPointer();
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOff();
 	}
 #endif
 
-	if ( m_iClip1 <= 0 )
+	if (m_iClip1 <= 0)
 	{
-		return DefaultDeploy( (char*)GetViewModel(), (char*)GetWorldModel(), ACT_RPG_DRAW_UNLOADED, (char*)GetAnimPrefix() );
+		return DefaultDeploy((char*)GetViewModel(), (char*)GetWorldModel(), ACT_RPG_DRAW_UNLOADED, (char*)GetAnimPrefix());
 	}
 
-	return DefaultDeploy( (char*)GetViewModel(), (char*)GetWorldModel(), ACT_VM_DRAW, (char*)GetAnimPrefix() );
+	return DefaultDeploy((char*)GetViewModel(), (char*)GetWorldModel(), ACT_VM_DRAW, (char*)GetAnimPrefix());
 }
 
 
 //-----------------------------------------------------------------------------
 // Purpose:
 //-----------------------------------------------------------------------------
-void CWeaponRPG::PrimaryAttack( void )
+void CWeaponRPG::PrimaryAttack(void)
 {
 	// Can't have an active missile out
-	if ( m_hMissile != NULL )
+	if (m_hMissile != NULL)
 		return;
 
 	// Can't be reloading
-	if ( GetActivity() == ACT_VM_RELOAD )
+	if (GetActivity() == ACT_VM_RELOAD)
 		return;
 
-	if ( m_iClip1 <= 0 )
+	if (m_iClip1 <= 0)
 	{
-		if ( !m_bFireOnEmpty )
+		if (!m_bFireOnEmpty)
 		{
 			Reload();
 		}
 		else
 		{
-			WeaponSound( EMPTY );
+			WeaponSound(EMPTY);
 			m_flNextPrimaryAttack = gpGlobals->curtime + 0.2;
 		}
 	}
@@ -801,111 +802,111 @@ void CWeaponRPG::PrimaryAttack( void )
 	Vector vecOrigin;
 	Vector vecForward;
 
-	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
-	
-	if ( pOwner == NULL )
+	CBasePlayer* pOwner = ToBasePlayer(GetOwner());
+
+	if (pOwner == NULL)
 		return;
 
-	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
-	WeaponSound( SINGLE );
+	SendWeaponAnim(ACT_VM_PRIMARYATTACK);
+	WeaponSound(SINGLE);
 #ifndef CLIENT_DLL
-	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 400, 0.2 );
+	CSoundEnt::InsertSound(SOUND_COMBAT, GetAbsOrigin(), 400, 0.2);
 #endif
 	pOwner->DoMuzzleFlash();
 
 #ifndef CLIENT_DLL
 	// Register a muzzleflash for the AI
-	pOwner->SetMuzzleFlashTime( gpGlobals->curtime + 0.5 );
+	pOwner->SetMuzzleFlashTime(gpGlobals->curtime + 0.5);
 #endif
 
 	Vector	vForward, vRight, vUp;
 
-	pOwner->EyeVectors( &vForward, &vRight, &vUp );
+	pOwner->EyeVectors(&vForward, &vRight, &vUp);
 
 	Vector	muzzlePoint = pOwner->Weapon_ShootPosition() + vForward * 16.0f + vRight * 8.0f + vUp * -8.0f;
 
 #ifndef CLIENT_DLL
 	QAngle vecAngles;
-	VectorAngles( vForward, vecAngles );
+	VectorAngles(vForward, vecAngles);
 
-	CRpgRocket * pMissile = CRpgRocket::Create( muzzlePoint, vecAngles, pOwner );
+	CRpgRocket* pMissile = CRpgRocket::Create(muzzlePoint, vecAngles, pOwner);
 	pMissile->m_hOwner = this;
-	pMissile->SetAbsVelocity( pMissile->GetAbsVelocity() + vForward * DotProduct( pOwner->GetAbsVelocity(), vForward ) );
+	pMissile->SetAbsVelocity(pMissile->GetAbsVelocity() + vForward * DotProduct(pOwner->GetAbsVelocity(), vForward));
 
 	m_hMissile = pMissile;
 #endif
 
-	pOwner->ViewPunch( QAngle( -5, 0, 0 ) );
+	pOwner->ViewPunch(QAngle(-5, 0, 0));
 
-	m_iClip1--; 
-				
+	m_iClip1--;
+
 	m_flNextPrimaryAttack = gpGlobals->curtime + 1.5;
-	SetWeaponIdleTime( 1.5 );
+	SetWeaponIdleTime(1.5);
 
 	UpdateSpot();
 }
 
 
-void CWeaponRPG::WeaponIdle( void )
+void CWeaponRPG::WeaponIdle(void)
 {
-	CBaseCombatCharacter *pOwner = GetOwner();
-	
-	if ( pOwner == NULL )
+	CBaseCombatCharacter* pOwner = GetOwner();
+
+	if (pOwner == NULL)
 		return;
 
-	if ( !HasWeaponIdleTimeElapsed() )
+	if (!HasWeaponIdleTimeElapsed())
 		return;
 
 	int iAnim;
-	float flRand = random->RandomFloat( 0, 1 );
-	if ( flRand <= 0.75 || IsGuiding() )
+	float flRand = random->RandomFloat(0, 1);
+	if (flRand <= 0.75 || IsGuiding())
 	{
-		if ( m_iClip1 <= 0 )
+		if (m_iClip1 <= 0)
 			iAnim = ACT_RPG_IDLE_UNLOADED;
 		else
 			iAnim = ACT_VM_IDLE;
 	}
 	else
 	{
-		if ( m_iClip1 <= 0 )
+		if (m_iClip1 <= 0)
 			iAnim = ACT_RPG_FIDGET_UNLOADED;
 		else
 			iAnim = ACT_VM_FIDGET;
 	}
 
-	SendWeaponAnim( iAnim );
+	SendWeaponAnim(iAnim);
 }
 
 
-void CWeaponRPG::NotifyRocketDied( void )
+void CWeaponRPG::NotifyRocketDied(void)
 {
 	m_hMissile = NULL;
 
 	// Can't be reloading
-	if ( GetActivity() == ACT_VM_RELOAD )
+	if (GetActivity() == ACT_VM_RELOAD)
 		return;
 
-//	Reload();
+	//	Reload();
 }
 
 
-bool CWeaponRPG::Reload( void )
+bool CWeaponRPG::Reload(void)
 {
-	CBaseCombatCharacter *pOwner = GetOwner();
+	CBaseCombatCharacter* pOwner = GetOwner();
 
 #if 0
-	if ( pOwner == NULL )
+	if (pOwner == NULL)
 		return false;
 
-	if ( pOwner->GetAmmoCount(m_iPrimaryAmmoType) <= 0 )
+	if (pOwner->GetAmmoCount(m_iPrimaryAmmoType) <= 0)
 		return false;
 
-	WeaponSound( RELOAD );
-	
-	SendWeaponAnim( ACT_VM_RELOAD );
+	WeaponSound(RELOAD);
+
+	SendWeaponAnim(ACT_VM_RELOAD);
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOff();
 	}
@@ -920,16 +921,16 @@ bool CWeaponRPG::Reload( void )
 #endif
 
 	// Can't be reloading
-	if ( GetActivity() == ACT_VM_RELOAD )
+	if (GetActivity() == ACT_VM_RELOAD)
 		return false;
 
-	if ( pOwner == NULL )
+	if (pOwner == NULL)
 		return false;
 
-	if ( m_iClip1 > 0 )
+	if (m_iClip1 > 0)
 		return false;
 
-	if ( pOwner->GetAmmoCount(m_iPrimaryAmmoType) <= 0 )
+	if (pOwner->GetAmmoCount(m_iPrimaryAmmoType) <= 0)
 		return false;
 
 	// because the RPG waits to autoreload when no missiles are active while  the LTD is on, the
@@ -941,8 +942,8 @@ bool CWeaponRPG::Reload( void )
 	//
 	// Set the next attack time into the future so that WeaponIdle will get called more often
 	// than reload, allowing the RPG LTD to be updated
-	
-	if ( ( m_hMissile != NULL ) && IsGuiding() )
+
+	if ((m_hMissile != NULL) && IsGuiding())
 	{
 		// no reloading when there are active missiles tracking the designator.
 		// ward off future autoreload attempts by setting next attack time into the future for a bit. 
@@ -950,7 +951,7 @@ bool CWeaponRPG::Reload( void )
 	}
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOff();
 	}
@@ -960,48 +961,48 @@ bool CWeaponRPG::Reload( void )
 	m_flLaserDotReviveTime = gpGlobals->curtime + 2.1;
 	m_flNextSecondaryAttack = gpGlobals->curtime + 2.1;
 
-	return DefaultReload( GetMaxClip1(), GetMaxClip2(), ACT_VM_RELOAD );
+	return DefaultReload(GetMaxClip1(), GetMaxClip2(), ACT_VM_RELOAD);
 }
 
 
-bool CWeaponRPG::Holster( CBaseCombatWeapon *pSwitchingTo )
+bool CWeaponRPG::Holster(CBaseCombatWeapon* pSwitchingTo)
 {
 	// can't put away while guiding a missile.
-	if ( IsGuiding() && ( m_hMissile != NULL ) )
+	if (IsGuiding() && (m_hMissile != NULL))
 		return false;
 
-//	StopGuiding();
+	//	StopGuiding();
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOff();
-		UTIL_Remove( m_hLaserDot );
+		UTIL_Remove(m_hLaserDot);
 		m_hLaserDot = NULL;
 	}
 #endif
 
 	m_bLaserDotSuspended = false;
 
-	return BaseClass::Holster( pSwitchingTo );
+	return BaseClass::Holster(pSwitchingTo);
 }
 
 
-void CWeaponRPG::UpdateSpot( void )
+void CWeaponRPG::UpdateSpot(void)
 {
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	
-	if ( pPlayer == NULL )
+	CBasePlayer* pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer == NULL)
 		return;
 
 	CreateLaserPointer();
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot == NULL )
+	if (m_hLaserDot == NULL)
 		return;
 #endif
 
-	if ( IsGuiding() && m_bLaserDotSuspended && ( m_flLaserDotReviveTime <= gpGlobals->curtime ) )
+	if (IsGuiding() && m_bLaserDotSuspended && (m_flLaserDotReviveTime <= gpGlobals->curtime))
 	{
 #ifndef CLIENT_DLL
 		m_hLaserDot->TurnOn();
@@ -1012,33 +1013,33 @@ void CWeaponRPG::UpdateSpot( void )
 	//Move the laser dot, if active
 	trace_t	tr;
 	Vector	muzzlePos = pPlayer->Weapon_ShootPosition();
-	
-	Vector	forward;
-	AngleVectors( pPlayer->EyeAngles() + pPlayer->m_Local.m_vecPunchAngle, &forward );
 
-	Vector	endPos = muzzlePos + ( forward * MAX_TRACE_LENGTH );
+	Vector	forward;
+	AngleVectors(pPlayer->EyeAngles() + pPlayer->m_Local.m_vecPunchAngle, &forward);
+
+	Vector	endPos = muzzlePos + (forward * MAX_TRACE_LENGTH);
 
 	// Trace out for the endpoint
-	UTIL_TraceLine( muzzlePos, endPos, MASK_SHOT, this, COLLISION_GROUP_NONE, &tr );
+	UTIL_TraceLine(muzzlePos, endPos, MASK_SHOT, this, COLLISION_GROUP_NONE, &tr);
 
 	// Move the laser sprite
-	Vector	laserPos = tr.endpos + ( tr.plane.normal * 2.0f );
+	Vector	laserPos = tr.endpos + (tr.plane.normal * 2.0f);
 #ifndef CLIENT_DLL
-	m_hLaserDot->SetLaserPosition( laserPos, tr.plane.normal );
+	m_hLaserDot->SetLaserPosition(laserPos, tr.plane.normal);
 #endif
 }
 
 
-void CWeaponRPG::CreateLaserPointer( void )
+void CWeaponRPG::CreateLaserPointer(void)
 {
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 		return;
 
-	m_hLaserDot = CLaserDot::Create( GetAbsOrigin(), GetOwner() );
-	if ( !IsGuiding() )
+	m_hLaserDot = CLaserDot::Create(GetAbsOrigin(), GetOwner());
+	if (!IsGuiding())
 	{
-		if ( m_hLaserDot )
+		if (m_hLaserDot)
 		{
 			m_hLaserDot->TurnOff();
 		}
@@ -1047,18 +1048,18 @@ void CWeaponRPG::CreateLaserPointer( void )
 }
 
 
-bool CWeaponRPG::IsGuiding( void )
+bool CWeaponRPG::IsGuiding(void)
 {
 	return m_bGuiding;
 }
 
 
-void CWeaponRPG::StartGuiding( void )
+void CWeaponRPG::StartGuiding(void)
 {
 	m_bGuiding = true;
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOn();
 	}
@@ -1067,12 +1068,12 @@ void CWeaponRPG::StartGuiding( void )
 	UpdateSpot();
 }
 
-void CWeaponRPG::StopGuiding( void )
+void CWeaponRPG::StopGuiding(void)
 {
 	m_bGuiding = false;
 
 #ifndef CLIENT_DLL
-	if ( m_hLaserDot != NULL )
+	if (m_hLaserDot != NULL)
 	{
 		m_hLaserDot->TurnOff();
 	}
