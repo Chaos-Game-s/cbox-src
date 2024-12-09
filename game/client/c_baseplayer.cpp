@@ -237,7 +237,8 @@ END_RECV_TABLE()
 
  		RecvPropFloat		( RECVINFO(m_vecVelocity[0]), 0, RecvProxy_LocalVelocityX ),
  		RecvPropFloat		( RECVINFO(m_vecVelocity[1]), 0, RecvProxy_LocalVelocityY ),
- 		RecvPropFloat		( RECVINFO(m_vecVelocity[2]), 0, RecvProxy_LocalVelocityZ ),
+		RecvPropVector(RECVINFO(m_vecUseAngles)),
+		RecvPropFloat		( RECVINFO(m_vecVelocity[2]), 0, RecvProxy_LocalVelocityZ ),
 
 		RecvPropVector		( RECVINFO( m_vecBaseVelocity ) ),
 
@@ -292,6 +293,7 @@ END_RECV_TABLE()
 		RecvPropFloat	(RECVINFO(m_flMaxspeed)),
 		RecvPropInt		(RECVINFO(m_fFlags)),
 
+		RecvPropVector(RECVINFO(m_vecUseAngles)),
 
 		RecvPropInt		(RECVINFO(m_iObserverMode), 0, RecvProxy_ObserverMode ),
 		RecvPropEHandle	(RECVINFO(m_hObserverTarget), RecvProxy_ObserverTarget ),
@@ -1390,6 +1392,17 @@ void C_BasePlayer::CreateWaterEffects( void )
 //-----------------------------------------------------------------------------
 void C_BasePlayer::OverrideView( CViewSetup *pSetup )
 {
+	C_BaseCombatWeapon* pWeapon = GetActiveWeapon();
+	if (pWeapon)
+	{
+		// adnan
+		if (pWeapon->OverrideViewAngles()) {
+			// use the useAngles!
+				// override with the angles the server sends to us as useAngles
+				// use the useAngles only if we're holding and rotating with the grav gun
+			pSetup->angles = m_vecUseAngles;
+		}
+	}
 }
 
 bool C_BasePlayer::ShouldInterpolate()

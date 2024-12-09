@@ -1,7 +1,7 @@
 [vpc crc file version 2]
 5dbec75c ..\..\devtools\bin\vpc.exe
 _Nc_2013VS2013/vpcgame:hl2mp_
-78630eb4 server_hl2mp.vpc
+e642f29e server_hl2mp.vpc
 f20df8e7 ..\..\game\server\server_base.vpc
 4832e67a ..\..\vpc_scripts\source_dll_base.vpc
 d752cf80 ..\..\vpc_scripts\platform_dirs.vpc

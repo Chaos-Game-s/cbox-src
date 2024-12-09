@@ -505,6 +505,18 @@ bool ClientModeShared::ShouldDrawParticles( )
 	return true;
 }
 
+
+bool ClientModeShared::OverrideViewAngles(void)
+{
+	C_BaseCombatWeapon* pWeapon = GetActiveWeapon();
+	if (pWeapon)
+	{
+		// adnan
+		return pWeapon->OverrideViewAngles();
+	}
+	return false;
+}
+
 //-----------------------------------------------------------------------------
 // Purpose: Allow weapons to override mouse input (for binoculars)
 //-----------------------------------------------------------------------------

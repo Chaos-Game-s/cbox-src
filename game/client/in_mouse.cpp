@@ -689,9 +689,11 @@ void CInput::MouseMove( CUserCmd *cmd )
 		// Re-center the mouse.
 		ResetMouse();
 	}
-
-	// Store out the new viewangles.
-	engine->SetViewAngles( viewangles );
+	if (!(g_pClientMode->OverrideViewAngles()))
+	{
+		// Store out the new viewangles.
+		engine->SetViewAngles(viewangles);
+	}
 }
 
 //-----------------------------------------------------------------------------
