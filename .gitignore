@@ -61,3 +61,7 @@ config.cfg
 [Rr]elease*/
 *.pdb
 .vs/
+*.vcxproj
+*.filters
+*.vpc_crc
+*.vcxproj
