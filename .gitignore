@@ -65,3 +65,8 @@ config.cfg
 *.filters
 *.vpc_crc
 *.vcxproj
+game/client/client_hl2mp.vcxproj
+game/client/client_hl2mp.vcxproj.filters
+game/client/client_hl2mp.vcxproj.vpc_crc
+game/server/server_hl2mp.vcxproj
+game/server/server_hl2mp.vcxproj.vpc_crc
