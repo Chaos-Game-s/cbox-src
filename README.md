@@ -19,3 +19,7 @@
 - PBR Shaders
 - CSM (Cascade Shadow Mapping)
 - ..and much much more!
+
+## Credits 
+- [PBR](https://github.com/thexa4/source-pbr/) by Max Maton/Thexa4
+- IVP stuff by nillerusr
