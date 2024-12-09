@@ -1,0 +1,14 @@
+[vpc crc file version 2]
+5dbec75c ..\..\devtools\bin\vpc.exe
+_Nc_2013VS2013/vpcgame:hl2mp_
+c08f22fa matsys_controls.vpc
+30577f77 ..\..\vpc_scripts\source_lib_base.vpc
+d752cf80 ..\..\vpc_scripts\platform_dirs.vpc
+6c4a5ff1 ..\..\vpc_scripts\source_base.vpc
+7678fbb1 ..\..\vpc_scripts\source_lib_win32_base.vpc
+486b766d ..\..\vpc_scripts\version.vpc
+e19a4371 ..\..\vpc_scripts\source_lib_win32_debug.vpc
+fd157743 ..\..\vpc_scripts\source_lib_win32_release.vpc
+1e941d94 ..\..\vpc_scripts\source_win32_base.vpc
+15cd25e0 ..\..\vpc_scripts\source_video_base.vpc
+ff659259 ..\..\vpc_scripts\definitions\win32_2010.def

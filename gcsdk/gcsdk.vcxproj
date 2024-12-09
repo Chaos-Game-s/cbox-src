@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>gcsdk</ProjectName>
+    <ProjectGuid>{B585A827-5DA1-5339-5112-72ED639F9A58}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>gcsdk</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>gcsdk</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\lib\public\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\.\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\lib\public\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\.\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\lib\public\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\lib\public\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\lib\public\. mkdir ..\lib\public\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;    ..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\devtools\bin\vpc.exe&quot; &quot;..\devtools\bin\vpc.exe&quot; -crc2 &quot;gcsdk.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Gw /Zc:inline /YlGCSDK_PCH_Symbol</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1;..\gcsdk\generated_proto;..\thirdparty\protobuf-2.6.1\src;..\gcsdk\steamextra;..;..\public;..\public\gcsdk;..\thirdparty\JSON_parser;.</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=gcsdk;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;TF;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\gcsdk;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\vpc_scripts\valve_p4_edit.cmd ..\lib\public\.\$(TargetName).lib ..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\lib\public\.\gcsdk.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/gcsdk.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\lib\public\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\lib\public\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\lib\public\. mkdir ..\lib\public\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;    ..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\lib\public\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\devtools\bin\vpc.exe&quot; &quot;..\devtools\bin\vpc.exe&quot; -crc2 &quot;gcsdk.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Zo /Oy- /Gw /Zc:inline /YlGCSDK_PCH_Symbol</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1;..\gcsdk\generated_proto;..\thirdparty\protobuf-2.6.1\src;..\gcsdk\steamextra;..;..\public;..\public\gcsdk;..\thirdparty\JSON_parser;.</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=gcsdk;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;TF;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\gcsdk;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\vpc_scripts\valve_p4_edit.cmd ..\lib\public\.\$(TargetName).lib ..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\lib\public\.\gcsdk.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/gcsdk.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="steamextra\clientenums.h" />
+    <ClInclude Include="..\public\gcsdk\enumutils.h" />
+    <ClInclude Include="..\public\gcsdk\gcclient.h" />
+    <ClInclude Include="..\public\gcsdk\gcclient_sharedobjectcache.h" />
+    <ClInclude Include="..\public\gcsdk\gcclientjob.h" />
+    <ClInclude Include="..\public\gcsdk\gcclientsdk.h" />
+    <ClInclude Include="..\public\gcsdk\gcconstants.h" />
+    <ClInclude Include="..\public\gcsdk\gclogger.h" />
+    <ClInclude Include="..\public\gcsdk\gcmsg.h" />
+    <ClInclude Include="..\public\gcsdk\gcschema.h" />
+    <ClInclude Include="..\public\gcsdk\gcsdk.h" />
+    <ClInclude Include="..\public\gcsdk\gcsession.h" />
+    <ClInclude Include="..\public\gcsdk\gcsystemmsgs.h" />
+    <ClInclude Include="steamextra\gamecoordinator\igamecoordinator.h" />
+    <ClInclude Include="steamextra\gamecoordinator\igamecoordinatorhost.h" />
+    <ClInclude Include="steamextra\gamecoordinator\igcsqlquery.h" />
+    <ClInclude Include="steamextra\gamecoordinator\igcsqlresultsetlist.h" />
+    <ClInclude Include="steamextra\steam\isteamgamecoordinator.h" />
+    <ClInclude Include="..\public\gcsdk\job.h" />
+    <ClInclude Include="..\public\gcsdk\jobmgr.h" />
+    <ClInclude Include="..\public\gcsdk\jobtime.h" />
+    <ClInclude Include="..\public\gcsdk\messagelist.h" />
+    <ClInclude Include="steamextra\misc.h" />
+    <ClInclude Include="..\public\gcsdk\msgbase.h" />
+    <ClInclude Include="..\public\gcsdk\msgprotobuf.h" />
+    <ClInclude Include="..\public\gcsdk\netpacket.h" />
+    <ClInclude Include="..\public\gcsdk\netpacketpool.h" />
+    <ClInclude Include="steamextra\tier1\pearsonshash.h" />
+    <ClInclude Include="..\public\gcsdk\protobufsharedobject.h" />
+    <ClInclude Include="..\public\gcsdk\refcount.h" />
+    <ClInclude Include="steamextra\rtime.h" />
+    <ClInclude Include="..\public\gcsdk\sharedobject.h" />
+    <ClInclude Include="..\public\gcsdk\sharedobjectcache.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="steamextra\tier0\t0constants.h" />
+    <ClInclude Include="steamextra\tier1\tsmempool.h" />
+    <ClInclude Include="steamextra\tier1\tsmultimempool.h" />
+    <ClInclude Include="..\public\gcsdk\workthreadpool.h" />
+    <ClInclude Include="..\gcsdk\generated_proto\gcsdk_gcmessages.pb.h" />
+    <ClInclude Include="..\gcsdk\generated_proto\gcsystemmsgs.pb.h" />
+    <ClInclude Include="..\gcsdk\generated_proto\steammessages.pb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\gcsdk\generated_proto\gcsdk_gcmessages.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\gcsdk\generated_proto\gcsystemmsgs.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\gcsdk\generated_proto\steammessages.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\common\debug_lib_check.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="gcclient.cpp" />
+    <ClCompile Include="gcclient_sharedobjectcache.cpp" />
+    <ClCompile Include="gcconstants.cpp" />
+    <ClCompile Include="gclogger.cpp" />
+    <ClCompile Include="gcmsg.cpp" />
+    <ClCompile Include="steamextra\tier1\hashglobals.cpp" />
+    <ClCompile Include="job.cpp" />
+    <ClCompile Include="jobmgr.cpp" />
+    <ClCompile Include="jobtime.cpp" />
+    <ClCompile Include="..\thirdparty\JSON_parser\JSON_parser.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="messagelist.cpp" />
+    <ClCompile Include="steamextra\misc.cpp" />
+    <ClCompile Include="msgprotobuf.cpp" />
+    <ClCompile Include="netpacket.cpp" />
+    <ClCompile Include="netpacketpool.cpp" />
+    <ClCompile Include="protobufsharedobject.cpp" />
+    <ClCompile Include="steamextra\rtime.cpp" />
+    <ClCompile Include="sharedobject.cpp" />
+    <ClCompile Include="sharedobjectcache.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="steamextra\steamid.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="steamextra\tier1\tsmempool.cpp" />
+    <ClCompile Include="steamextra\tier1\tsmultimempool.cpp" />
+    <ClCompile Include="webapi_response.cpp" />
+    <ClCompile Include="workthreadpool.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\gcsdk\gcsdk_gcmessages.proto">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="gcsystemmsgs.proto">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\gcsdk\steammessages.proto">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">if not exist ..\gcsdk\generated_proto mkdir ..\gcsdk\generated_proto&#x0D;&#x0A;..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\protoc.exe --proto_path=..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\gcsdk --proto_path=..\game\shared  --cpp_out=..\gcsdk\generated_proto %(FullPath)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\gcsdk\generated_proto\%(Filename).pb.cc;..\gcsdk\generated_proto\%(Filename).pb.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="gcsdk_game.vpc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running VPC CRC Check - gcsdk_game.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\devtools\bin\vpc.exe&quot; &quot;..\devtools\bin\vpc.exe&quot; -crc2 &quot;gcsdk.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\gcsdk\gcsdk_game.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\gcsdk\gcsdk_game.vpc.sentinel</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running VPC CRC Check - gcsdk_game.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\devtools\bin\vpc.exe&quot; &quot;..\devtools\bin\vpc.exe&quot; -crc2 &quot;gcsdk.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\gcsdk\gcsdk_game.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\gcsdk\gcsdk_game.vpc.sentinel</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\gcsdk\gcsdk_gcmessages_include.vpc" />
+    <None Include="..\vpc_scripts\platform_dirs.vpc" />
+    <None Include="..\vpc_scripts\protobuf_builder.vpc" />
+    <None Include="..\vpc_scripts\source_base.vpc" />
+    <None Include="..\vpc_scripts\source_lib_base.vpc" />
+    <None Include="..\vpc_scripts\source_lib_win32_base.vpc" />
+    <None Include="..\vpc_scripts\source_lib_win32_debug.vpc" />
+    <None Include="..\vpc_scripts\source_lib_win32_release.vpc" />
+    <None Include="..\vpc_scripts\source_video_base.vpc" />
+    <None Include="..\vpc_scripts\source_win32_base.vpc" />
+    <None Include="..\gcsdk\steammessages_include.vpc" />
+    <None Include="..\vpc_scripts\version.vpc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

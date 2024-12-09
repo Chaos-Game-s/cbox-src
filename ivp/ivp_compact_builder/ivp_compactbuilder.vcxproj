@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>ivp_compactbuilder</ProjectName>
+    <ProjectGuid>{A02C20F9-2ED1-5AC9-C125-4332A6DCC372}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>ivp_compactbuilder</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>ivp_compactbuilder</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\obj\x86_debug\ivp_compactbuilder\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\obj\x86_debug\ivp_compactbuilder\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\obj\x86_release\ivp_compactbuilder\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\obj\x86_release\ivp_compactbuilder\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\..\lib\common\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\lib\common\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\..\lib\common\. mkdir ..\..\lib\common\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    ..\..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;ivp_compactbuilder.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Gw /Zc:inline</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\ivp\ivp_intern;..\..\ivp\ivp_collision;..\..\ivp\ivp_physics;..\..\ivp\ivp_surface_manager;..\..\ivp\ivp_utility;..\..\ivp\ivp_controller;..\..\ivp\ivp_compact_builder;..\..\ivp\havana\havok;..\..\ivp\havana</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=ivp_compactbuilder;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;IVP_VERSION_SDK;HAVOK_MOPP;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>..\obj\x86_debug\ivp_compactbuilder\ivp_compactbuilder_lib.pch</PrecompiledHeaderOutputFile>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\obj\x86_debug\ivp_compactbuilder\</AssemblerListingLocation>
+      <ObjectFileName>..\obj\x86_debug\ivp_compactbuilder\</ObjectFileName>
+      <ProgramDataBaseFileName>..\obj\x86_debug\ivp_compactbuilder\</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\..\vpc_scripts\valve_p4_edit.cmd ..\..\lib\common\.\$(TargetName).lib ..\..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\..\lib\common\.\ivp_compactbuilder.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/ivp_compactbuilder.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\..\lib\common\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\lib\common\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\..\lib\common\. mkdir ..\..\lib\common\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    ..\..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;ivp_compactbuilder.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Zo /Oy- /Gw /Zc:inline</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\ivp\ivp_intern;..\..\ivp\ivp_collision;..\..\ivp\ivp_physics;..\..\ivp\ivp_surface_manager;..\..\ivp\ivp_utility;..\..\ivp\ivp_controller;..\..\ivp\ivp_compact_builder;..\..\ivp\havana\havok;..\..\ivp\havana</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=ivp_compactbuilder;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;IVP_VERSION_SDK;HAVOK_MOPP;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>ivp_physics.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>..\obj\x86_release\ivp_compactbuilder\ivp_compactbuilder_lib.pch</PrecompiledHeaderOutputFile>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\obj\x86_release\ivp_compactbuilder\</AssemblerListingLocation>
+      <ObjectFileName>..\obj\x86_release\ivp_compactbuilder\</ObjectFileName>
+      <ProgramDataBaseFileName>..\obj\x86_release\ivp_compactbuilder\</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\..\vpc_scripts\valve_p4_edit.cmd ..\..\lib\common\.\$(TargetName).lib ..\..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\..\lib\common\.\ivp_compactbuilder.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/ivp_compactbuilder.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\3dsimport_load.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_ledge_gen.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_modify.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_recursive.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_convex_decompositor.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_halfspacesoup.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_i_fpoint_vhash.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_i_point_vhash.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_object_polygon_tetra.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_rot_inertia_solver.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_3ds.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_halfspacesoup.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_ledge_soup.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_pointsoup.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polygon_convex.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polyhdrn_cncv.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_q12.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_templates_intern.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_tetra_intrude.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_triangle_gen.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivv_cluster_min_hash.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\geompack.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_a.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_geom.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_io.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_mem.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_merge.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_poly.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_qset.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_stat.hxx" />
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_user.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\3dsimport_co.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_ledge_gen.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ivp_physics.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_modify.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_recursive.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_convex_decompositor.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_halfspacesoup.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_i_fpoint_vhash.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_i_point_vhash.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_object_polygon_tetra.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_rot_inertia_solver.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_halfspacesoup.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_ledge_soup.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_pointsoup.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polygon_convex.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polyhdrn_cncv.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_q12.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_templates_intern.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_tetra_intrude.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivv_cluster_min_hash.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_cutfac.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_cvdec3.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_drdec3.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_dsphdc.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_edght.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_initcb.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insed3.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insfac.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insvr3.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_prime.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_ptpolg.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_resedg.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_geom.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_geom2.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_global.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_io.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_mem.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_merge.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_poly.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_poly2.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_qset.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_stat.cxx" />
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_user.cxx" />
+    <ClCompile Include="..\..\common\debug_lib_check.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ivp_compactbuilder.vpc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running VPC CRC Check - ivp_compactbuilder.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;ivp_compactbuilder.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder\ivp_compactbuilder.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder\ivp_compactbuilder.vpc.sentinel</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running VPC CRC Check - ivp_compactbuilder.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\devtools\bin\vpc.exe&quot; &quot;..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;ivp_compactbuilder.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder\ivp_compactbuilder.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\ivp\ivp_compact_builder\ivp_compactbuilder.vpc.sentinel</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\vpc_scripts\platform_dirs.vpc" />
+    <None Include="..\..\vpc_scripts\source_base.vpc" />
+    <None Include="..\..\vpc_scripts\source_lib_base.vpc" />
+    <None Include="..\..\vpc_scripts\source_lib_win32_base.vpc" />
+    <None Include="..\..\vpc_scripts\source_lib_win32_debug.vpc" />
+    <None Include="..\..\vpc_scripts\source_lib_win32_release.vpc" />
+    <None Include="..\..\vpc_scripts\source_video_base.vpc" />
+    <None Include="..\..\vpc_scripts\source_win32_base.vpc" />
+    <None Include="..\..\vpc_scripts\version.vpc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

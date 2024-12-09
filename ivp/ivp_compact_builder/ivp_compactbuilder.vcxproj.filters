@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="IVP_COMPACT_BUILDER">
+      <UniqueIdentifier>{222F007F-8710-2171-35B9-AE2A5247BAF6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IVP_GEOMPACK">
+      <UniqueIdentifier>{5915D7C3-2DE4-7B1F-7DC6-708137F46B71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IVP_QHULL">
+      <UniqueIdentifier>{98940083-4E36-8EF4-AE47-2C306212C8C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA03E055-4FA2-FCE3-8A1C-D348547D379C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VPC Scripts">
+      <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\3dsimport_load.hxx">
+      <Filter></Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_ledge_gen.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_modify.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_compact_recursive.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_convex_decompositor.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_halfspacesoup.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_i_fpoint_vhash.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_i_point_vhash.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_object_polygon_tetra.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_rot_inertia_solver.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_3ds.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_halfspacesoup.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_ledge_soup.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_pointsoup.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polygon_convex.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polyhdrn_cncv.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_q12.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_templates_intern.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_tetra_intrude.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivp_triangle_gen.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\ivv_cluster_min_hash.hxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\geompack.hxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_a.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_geom.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_io.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_mem.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_merge.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_poly.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_qset.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_stat.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ivp\ivp_compact_builder\qhull_user.hxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\3dsimport_co.cxx">
+      <Filter></Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_ledge_gen.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_modify.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_compact_recursive.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_convex_decompositor.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_halfspacesoup.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_i_fpoint_vhash.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_i_point_vhash.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_object_polygon_tetra.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_rot_inertia_solver.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_halfspacesoup.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_ledge_soup.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_pointsoup.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polygon_convex.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_polyhdrn_cncv.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_surbuild_q12.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_templates_intern.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivp_tetra_intrude.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\ivv_cluster_min_hash.cxx">
+      <Filter>IVP_COMPACT_BUILDER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_cutfac.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_cvdec3.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_drdec3.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_dsphdc.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_edght.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_initcb.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insed3.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insfac.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_insvr3.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_prime.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_ptpolg.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\geompack_resedg.cxx">
+      <Filter>IVP_GEOMPACK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_geom.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_geom2.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_global.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_io.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_mem.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_merge.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_poly.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_poly2.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_qset.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_stat.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ivp\ivp_compact_builder\qhull_user.cxx">
+      <Filter>IVP_QHULL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\debug_lib_check.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ivp_compactbuilder.vpc">
+      <Filter>VPC Scripts</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\vpc_scripts\platform_dirs.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_base.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_lib_base.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_lib_win32_base.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_lib_win32_debug.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_lib_win32_release.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_video_base.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\source_win32_base.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+    <None Include="..\..\vpc_scripts\version.vpc">
+      <Filter>VPC Scripts</Filter>
+    </None>
+  </ItemGroup>
+</Project>

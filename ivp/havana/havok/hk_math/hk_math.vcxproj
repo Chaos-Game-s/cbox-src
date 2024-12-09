@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>hk_math</ProjectName>
+    <ProjectGuid>{827C98DA-2CE3-EB4B-B268-67CFD3952142}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>hk_math</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>hk_math</TargetName>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\ivp\obj\x86_debug\hk_math\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\ivp\obj\x86_debug\hk_math\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\ivp\obj\x86_release\hk_math\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\ivp\obj\x86_release\hk_math\</IntDir>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\..\..\..\lib\common\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\..\lib\common\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\..\..\..\lib\common\. mkdir ..\..\..\..\lib\common\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    ..\..\..\..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\..\..\..\devtools\bin\vpc.exe&quot; &quot;..\..\..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;hk_math.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Gw /Zc:inline</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\common;..\..\..\..\public;..\..\..\..\public\tier0;..\..\..\..\public\tier1;..\..\..\..\ivp\havana\havok;..\..\..\..\ivp\havana</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=hk_math;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;VPHYSICS_EXPORTS;HAVANA_CONSTRAINTS;HAVOK_MOPP;_DEBUG;_LIB;HK_DEBUG;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>hk_math\vecmath.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>..\..\..\..\ivp\obj\x86_debug\hk_math\hk_math.pch</PrecompiledHeaderOutputFile>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\..\..\..\ivp\obj\x86_debug\hk_math\</AssemblerListingLocation>
+      <ObjectFileName>..\..\..\..\ivp\obj\x86_debug\hk_math\</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\..\ivp\obj\x86_debug\hk_math\</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\..\..\..\vpc_scripts\valve_p4_edit.cmd ..\..\..\..\lib\common\.\$(TargetName).lib ..\..\..\..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\..\..\..\lib\common\.\hk_math.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/hk_math.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>if EXIST ..\..\..\..\lib\common\.\$(TargetName).lib ( for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\..\lib\common\.\$(TargetName).lib&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;) else ( if not EXIST ..\..\..\..\lib\common\. mkdir ..\..\..\..\lib\common\. )&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; (&#x0D;&#x0A;    attrib -r ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    ..\..\..\..\devtools\bin\gnu\touch.exe -d &quot;1999-01-01&quot; ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;    attrib +r ..\..\..\..\lib\common\.\$(TargetName).lib&#x0D;&#x0A;)&#x0D;&#x0A;if exist &quot;..\..\..\..\devtools\bin\vpc.exe&quot; &quot;..\..\..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;hk_math.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions> /Zo /Oy- /Gw /Zc:inline</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\..\..\..\common;..\..\..\..\public;..\..\..\..\public\tier0;..\..\..\..\public\tier1;..\..\..\..\ivp\havana\havok;..\..\..\..\ivp\havana</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;LIBNAME=hk_math;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;VPHYSICS_EXPORTS;HAVANA_CONSTRAINTS;HAVOK_MOPP;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>hk_math\vecmath.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>..\..\..\..\ivp\obj\x86_release\hk_math\hk_math.pch</PrecompiledHeaderOutputFile>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\..\..\..\ivp\obj\x86_release\hk_math\</AssemblerListingLocation>
+      <ObjectFileName>..\..\..\..\ivp\obj\x86_release\hk_math\</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\..\ivp\obj\x86_release\hk_math\</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseFullPaths>true</UseFullPaths>
+      <DisableSpecificWarnings>;4316</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>call ..\..\..\..\vpc_scripts\valve_p4_edit.cmd ..\..\..\..\lib\common\.\$(TargetName).lib ..\..\..\..</Command>
+    </PreLinkEvent>
+    <Lib>
+      <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
+      <OutputFile>..\..\..\..\lib\common\.\hk_math.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+    </Lib>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/hk_math.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <CustomBuildStep>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base_math.h" />
+    <ClInclude Include="dense_vector.h" />
+    <ClInclude Include="densematrix.h" />
+    <ClInclude Include="densematrix_util.h" />
+    <ClInclude Include="eulerangles.h" />
+    <ClInclude Include="interval.h" />
+    <ClInclude Include="matrix3.h" />
+    <ClInclude Include="odesolve.h" />
+    <ClInclude Include="plane.h" />
+    <ClInclude Include="qtransform.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="rotation.h" />
+    <ClInclude Include="spatial_matrix.h" />
+    <ClInclude Include="spatial_vector.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="transform.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="vecmath.h" />
+    <ClInclude Include="vector4.h" />
+    <ClInclude Include="gauss_elimination\gauss_elimination.h" />
+    <ClInclude Include="incr_lu\incr_lu.h" />
+    <ClInclude Include="lcp\lcp_solver.h" />
+    <ClInclude Include="matrix\matrix_inverter.h" />
+    <ClInclude Include="quaternion\quaternion.h" />
+    <ClInclude Include="quaternion\quaternion_util.h" />
+    <ClInclude Include="vector3\vector3.h" />
+    <ClInclude Include="vector3\vector3_util.h" />
+    <ClInclude Include="vector_fpu\vector_fpu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="densematrix.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="densematrix_util.cpp" />
+    <ClCompile Include="eulerangles.cpp" />
+    <ClCompile Include="math.cpp" />
+    <ClCompile Include="matrix3.cpp" />
+    <ClCompile Include="odesolve.cpp" />
+    <ClCompile Include="plane.cpp" />
+    <ClCompile Include="rotation.cpp" />
+    <ClCompile Include="spatial_matrix.cpp" />
+    <ClCompile Include="spatial_vector.cpp" />
+    <ClCompile Include="transform.cpp" />
+    <ClCompile Include="gauss_elimination\gauss_elimination.cpp" />
+    <ClCompile Include="incr_lu\incr_lu.cpp" />
+    <ClCompile Include="lcp\lcp_solver.cpp" />
+    <ClCompile Include="quaternion\quaternion.cpp" />
+    <ClCompile Include="quaternion\quaternion_util.cpp" />
+    <ClCompile Include="..\..\..\..\common\debug_lib_check.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vector3\vector3.cpp" />
+    <ClCompile Include="vector3\vector3_util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="hk_math.vpc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running VPC CRC Check - hk_math.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\..\..\devtools\bin\vpc.exe&quot; &quot;..\..\..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;hk_math.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math\hk_math.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math\hk_math.vpc.sentinel</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running VPC CRC Check - hk_math.vpc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rem IncrediBuild_AllowOverlap&#x0D;&#x0A;if exist &quot;..\..\..\..\devtools\bin\vpc.exe&quot; &quot;..\..\..\..\devtools\bin\vpc.exe&quot; -crc2 &quot;hk_math.vcxproj&quot;&#x0D;&#x0A;if ERRORLEVEL 1 exit /b 1&#x0D;&#x0A;echo crc_complete &gt; C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math\hk_math.vpc.sentinel</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\hp\Documents\GitHub\cbox-src\ivp\havana\havok\hk_math\hk_math.vpc.sentinel</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dense_vector.inl" />
+    <None Include="densematrix.inl" />
+    <None Include="densematrix_util.inl" />
+    <None Include="math.inl" />
+    <None Include="matrix3.inl" />
+    <None Include="plane.inl" />
+    <None Include="qtransform.inl" />
+    <None Include="ray.inl" />
+    <None Include="rotation.inl" />
+    <None Include="spatial_matrix.inl" />
+    <None Include="spatial_vector.inl" />
+    <None Include="transform.inl" />
+    <None Include="vector4.inl" />
+    <None Include="quaternion\quaternion.inl" />
+    <None Include="vector3\vector3.inl" />
+    <None Include="vector3\vector3_util.inl" />
+    <None Include="vector_fpu\vector_fpu.inl" />
+    <None Include="..\..\..\..\vpc_scripts\platform_dirs.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_base.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_lib_base.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_lib_win32_base.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_lib_win32_debug.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_lib_win32_release.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_video_base.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\source_win32_base.vpc" />
+    <None Include="..\..\..\..\vpc_scripts\version.vpc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
