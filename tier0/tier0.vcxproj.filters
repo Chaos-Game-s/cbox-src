@@ -27,9 +27,6 @@
     <Library Include="DESKey\DK2WIN32.LIB">
       <Filter>DESKey</Filter>
     </Library>
-    <Library Include="..\thirdparty\telemetry\lib\telemetry32.link.lib">
-      <Filter>Link Libraries</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DESKey\ALGO.H">
