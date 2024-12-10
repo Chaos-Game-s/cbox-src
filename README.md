@@ -22,4 +22,4 @@
 
 ## Credits 
 - [PBR](https://github.com/thexa4/source-pbr/) by Max Maton/Thexa4
-- IVP stuff by nillerusr
+- [IVP](https://github.com/nillerusr/source-physics/) stuff by nillerusr
