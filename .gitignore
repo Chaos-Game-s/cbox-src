@@ -70,4 +70,7 @@ game/client/client_hl2mp.vcxproj.filters
 game/client/client_hl2mp.vcxproj.vpc_crc
 game/server/server_hl2mp.vcxproj
 game/server/server_hl2mp.vcxproj.vpc_crc
-lib
+
+# Our stuff
+lib/
+*.bak

@@ -68,7 +68,7 @@
       <AdditionalOptions>/Zm200 /Gw /Zc:inline</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\;..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\client\generated_proto_chaosbox;..\..\thirdparty\protobuf-2.6.1\src;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls;..\..\thirdparty\sixensesdk\include;hl2mp\ui;.\hl2mp;..\..\game\shared\hl2mp;.\hl2;.\hl2\elements;..\..\game\shared\hl2</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_CLIENT_DLL;CHAOS;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\client;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_HAS_ITERATOR_DEBUGGING=0;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;LUA_SDK;fopen=dont_use_fopen;HL2MP;HL2_CLIENT_DLL;CHAOS;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\client;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -87,7 +87,6 @@
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <BrowseInformation>false</BrowseInformation>
       <WarningLevel>Level4</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>CompileAsCpp</CompileAs>
       <UseFullPaths>true</UseFullPaths>
@@ -147,7 +146,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>.\;..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\client\generated_proto_chaosbox;..\..\thirdparty\protobuf-2.6.1\src;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls;..\..\thirdparty\sixensesdk\include;hl2mp\ui;.\hl2mp;..\..\game\shared\hl2mp;.\hl2;.\hl2\elements;..\..\game\shared\hl2</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;fopen=dont_use_fopen;HL2MP;HL2_CLIENT_DLL;CHAOS;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\client;_DLL_EXT=.dll;SOURCE1=1;VPCGAME=hl2mp</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VPC;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;COMPILER_MSVC32;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;BINK_VIDEO;AVI_VIDEO;WMV_VIDEO;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;LUA_SDK;fopen=dont_use_fopen;HL2MP;HL2_CLIENT_DLL;CHAOS;_EXTERNAL_DLL_EXT=.dll;VPCGAMECAPS=HL2MP;PROJECTDIR=C:\Users\hp\Documents\cbox-src\game\client;_DLL_EXT=.dll;VPCGAME=hl2mp;SOURCE1=1</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -166,7 +165,6 @@
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <BrowseInformation>false</BrowseInformation>
       <WarningLevel>Level4</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsCpp</CompileAs>
       <UseFullPaths>true</UseFullPaths>
@@ -223,6 +221,7 @@
     <Library Include="..\..\lib\public\dmxloader.lib" />
     <Library Include="..\..\thirdparty\protobuf-2.6.1\bin\win32\2013\staticcrt\release\libprotobuf.lib" />
     <Library Include="..\..\lib\public\libz.lib" />
+    <Library Include="..\..\lib\public\lua51.lib" />
     <Library Include="..\..\lib\public\mathlib.lib" />
     <Library Include="..\..\lib\public\matsys_controls.lib" />
     <Library Include="..\..\lib\public\particles.lib" />
@@ -831,6 +830,7 @@
     <ClInclude Include="..\..\game\shared\hl2mp\hl2mp_gamerules.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\hl2mp_player_shared.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\hl2mp_weapon_parse.h" />
+    <ClInclude Include="..\..\game\shared\hl2mp\lhl2mp_player_shared.h" />
     <ClInclude Include="hl2mp\ui\backgroundpanel.h" />
     <ClInclude Include="hl2mp\hl2mp_hud_chat.h" />
     <ClInclude Include="hl2mp\ui\hl2mpclientscoreboard.h" />
@@ -838,6 +838,7 @@
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_ar2.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbase.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_machinegun.h" />
+    <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_scriptedweapon.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_hl2mpbasehlmpcombatweapon.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_physcannon.h" />
     <ClInclude Include="..\..\game\shared\hl2mp\weapon_rpg.h" />
@@ -1433,6 +1434,7 @@
     <ClCompile Include="..\..\game\shared\hl2mp\hl2mp_gamerules.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\hl2mp_player_shared.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\hl2mp_weapon_parse.cpp" />
+    <ClCompile Include="..\..\game\shared\hl2mp\lhl2mp_player_shared.cpp" />
     <ClCompile Include="hl2mp\ui\backgroundpanel.cpp" />
     <ClCompile Include="hl2mp\hl2mp_hud_chat.cpp" />
     <ClCompile Include="hl2mp\hl2mp_hud_target_id.cpp" />
@@ -1447,6 +1449,7 @@
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_frag.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbase.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_machinegun.cpp" />
+    <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbase_scriptedweapon.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbasebasebludgeon.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_hl2mpbasehlmpcombatweapon.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_physcannon.cpp" />
@@ -1456,10 +1459,77 @@
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_slam.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_smg1.cpp" />
     <ClCompile Include="..\..\game\shared\hl2mp\weapon_stunstick.cpp" />
+    <ClCompile Include="..\..\game\shared\basescripted.cpp" />
+    <ClCompile Include="..\..\game\shared\lbasecombatweapon_shared.cpp" />
+    <ClCompile Include="..\..\game\shared\lbaseentity_shared.cpp" />
+    <ClCompile Include="..\..\game\shared\lbaseplayer_shared.cpp" />
+    <ClCompile Include="..\..\public\lbspflags.cpp" />
+    <ClCompile Include="lc_baseanimating.cpp" />
+    <ClCompile Include="lc_baseentity.cpp" />
+    <ClCompile Include="lc_baseplayer.cpp" />
+    <ClCompile Include="..\..\public\lcdll_int.cpp" />
+    <ClCompile Include="lcdll_util.cpp" />
+    <ClCompile Include="..\..\public\lColor.cpp" />
+    <ClCompile Include="..\..\public\tier1\lconvar.cpp" />
+    <ClCompile Include="..\..\public\tier0\ldbg.cpp" />
+    <ClCompile Include="..\..\public\vgui_controls\lEditablePanel.cpp" />
+    <ClCompile Include="..\..\game\shared\leffect_dispatch_data.cpp" />
+    <ClCompile Include="..\..\public\lfilesystem.cpp" />
+    <ClCompile Include="..\..\public\lgametrace.cpp" />
+    <ClCompile Include="..\..\public\lglobalvars_base.cpp" />
+    <ClCompile Include="liclientshadowmgr.cpp" />
+    <ClCompile Include="..\..\public\tier1\liconvar.cpp" />
+    <ClCompile Include="..\..\public\licvar.cpp" />
+    <ClCompile Include="..\..\public\lienginevgui.cpp" />
+    <ClCompile Include="..\..\public\vgui\LIInput.cpp" />
+    <ClCompile Include="..\..\public\materialsystem\limaterial.cpp" />
+    <ClCompile Include="..\..\game\shared\limovehelper.cpp" />
+    <ClCompile Include="..\..\game\shared\lin_buttons.cpp" />
+    <ClCompile Include="..\..\game\shared\lipredictionsystem.cpp" />
+    <ClCompile Include="..\..\public\vgui\LIScheme.cpp" />
+    <ClCompile Include="..\..\public\SoundEmitterSystem\lisoundemittersystembase.cpp" />
+    <ClCompile Include="..\..\public\steam\listeamfriends.cpp" />
+    <ClCompile Include="..\..\public\vgui\LISurface.cpp" />
+    <ClCompile Include="..\..\public\engine\livdebugoverlay.cpp" />
+    <ClCompile Include="..\..\public\tier1\LKeyValues.cpp" />
+    <ClCompile Include="..\..\public\mathlib\lmathlib.cpp" />
+    <ClCompile Include="..\..\public\lnetworkstringtabledefs.cpp" />
+    <ClCompile Include="..\..\public\vgui_controls\lPanel.cpp" />
+    <ClCompile Include="..\..\public\vphysics\lperformance.cpp" />
+    <ClCompile Include="lprediction.cpp" />
+    <ClCompile Include="..\..\public\vstdlib\lrandom.cpp" />
+    <ClCompile Include="..\..\game\shared\lshareddefs.cpp" />
+    <ClCompile Include="..\..\game\shared\lsrcinit.cpp" />
+    <ClCompile Include="..\..\public\steam\lsteam_api.cpp" />
+    <ClCompile Include="..\..\game\shared\ltakedamageinfo.cpp" />
+    <ClCompile Include="..\..\game\shared\luacachefile.cpp" />
+    <ClCompile Include="..\..\game\shared\luamanager.cpp" />
+    <ClCompile Include="..\..\game\shared\lutil_shared.cpp" />
+    <ClCompile Include="..\..\public\mathlib\lvector.cpp" />
+    <ClCompile Include="..\..\public\vgui\LVGUI.cpp" />
+    <ClCompile Include="..\..\public\vgui_controls\lvgui_controls.cpp" />
+    <ClCompile Include="..\..\public\mathlib\lvmatrix.cpp" />
+    <ClCompile Include="..\..\public\lvphysics_interface.cpp" />
+    <ClCompile Include="..\..\public\XUnzip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\public\zip_utils.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="scripted_controls\l_Panel.cpp" />
+    <ClCompile Include="scripted_controls\lButton.cpp" />
+    <ClCompile Include="scripted_controls\lCheckButton.cpp" />
+    <ClCompile Include="scripted_controls\lFrame.cpp" />
+    <ClCompile Include="scripted_controls\lPropertyDialog.cpp" />
+    <ClCompile Include="scripted_controls\lPropertyPage.cpp" />
+    <ClCompile Include="scripted_controls\scriptedclientluapanel.cpp" />
+    <ClCompile Include="scripted_controls\scriptedhudviewport.cpp" />
     <ClCompile Include="sixense\in_sixense.cpp" />
     <ClCompile Include="sixense\in_sixense_gesture_bindings.cpp" />
     <ClCompile Include="..\..\game\shared\sixense\sixense_convars.cpp" />

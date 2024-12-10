@@ -67,6 +67,10 @@
 #include "tf_gamerules.h"
 #endif
 
+#ifdef LUA_SDK
+#include "luamanager.h"
+#endif
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -415,7 +419,13 @@ CBaseEntity::CBaseEntity( bool bServerOnly )
 	AddEFlags( EFL_USE_PARTITION_WHEN_NOT_SOLID );
 #endif
 
+<<<<<<< HEAD:game/server/baseentity.cpp
 	m_bTruceValidForEnt = false;
+=======
+#if defined( LUA_SDK )
+	m_nTableReference = LUA_NOREF;
+#endif
+>>>>>>> 1dffddd5 (add lua):src/game/server/baseentity.cpp
 }
 
 //-----------------------------------------------------------------------------
@@ -470,6 +480,10 @@ CBaseEntity::~CBaseEntity( )
 		// Remove this entity from the ent list (NOTE:  This Makes EHANDLES go NULL)
 		gEntList.RemoveEntity( GetRefEHandle() );
 	}
+
+#if defined( LUA_SDK )
+	lua_unref(L, m_nTableReference);
+#endif
 }
 
 void CBaseEntity::PostConstructor( const char *szClassname )
