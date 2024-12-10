@@ -25,4 +25,4 @@
 - [PBR](https://github.com/thexa4/source-pbr/) by Max Maton/Thexa4
 - [IVP](https://github.com/nillerusr/source-physics/) stuff by nillerusr
 
-## [Join Our Discord Server]!](https://discord.gg/AudmCYsx9d)
+## [Join Our Discord Server!](https://discord.gg/AudmCYsx9d)
