@@ -8,7 +8,7 @@
 
 #include "p4helpers.h"
 #include "tier2/tier2.h"
-#include "p4lib/ip4.h"
+#include "..\public\p4lib\ip4.h"
 
 #ifdef PLATFORM_WINDOWS_PC
 #include <Windows.h>

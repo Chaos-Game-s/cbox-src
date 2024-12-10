@@ -410,7 +410,6 @@ static void stb__OptimizeColorsBlock(unsigned char *block, unsigned short *pmax1
    }
 
    *pmax16 = stb__As16Bit(maxp[0],maxp[1],maxp[2]);
-   *pmin16 = stb__As16Bit(minp[0],minp[1],minp[2]);
 }
 
 static int stb__sclamp(float y, int p0, int p1)
