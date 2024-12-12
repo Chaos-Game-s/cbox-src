@@ -24,5 +24,6 @@
 ## Credits 
 - [PBR](https://github.com/thexa4/source-pbr/) by Max Maton/Thexa4
 - [IVP](https://github.com/nillerusr/source-physics/) stuff by nillerusr
+- [LUA](https://github.com/experiment-games/experiment-source) by luttje/expirement.games
 
 ## [Join Our Discord Server!](https://discord.gg/AudmCYsx9d)
