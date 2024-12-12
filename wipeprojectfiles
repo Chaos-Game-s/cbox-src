@@ -1,7 +1,0 @@
-#!/bin/bash
-
-find . -name "*.vcxproj" -exec echo {} \; -exec rm {} \;
-
-if [ -f "experiment.sln" ]; then
-    rm "experiment.sln"
-fi
