@@ -1,3 +1,5 @@
+## YOU CANNOT COMPILE THIS BRANCH!
+## PLEASE USE THE OTHER BRANCH!
 ![image](https://github.com/user-attachments/assets/49cc8303-412c-4bf5-b87c-a739d7b03055)
 
 **ChaosBox** is a **Half-Life 2** mod that brings together a *wide array of weapons and entities from other Source Engine games*, such as:
