@@ -13,7 +13,7 @@ $Group "gamedlls"
 	"client"
 	"server"
 
-    "lua54"
+ //   "lua54"
 }
 
 
@@ -198,7 +198,7 @@ $Group "game"
 
 $Group "everything"
 {
-	"lua54"
+//	"lua54"
 	"socketlib"
 	"actbusy"
 	"adminserver"
@@ -272,7 +272,7 @@ $Group "everything"
 	"launcher"
 	"launcher_main"
 	"localization_check"
-	"lua"
+//	"lua"
 	"lxVsDmxIO_Modo302"
 	"lzma"
 	"makegamedata"
@@ -451,16 +451,11 @@ $Group "everything"
 	"vtfscrew"
 	"vvis_dll"
 	"vvis_launcher"
-<<<<<<< HEAD
     "zlib"
 	"coroutine_osx"
 
 //	"vs_python2.5"
 //	"vslib_python2.5"
-=======
-
-	"lua54"
->>>>>>> ace513a72 (build Lua from vpc)
 }
 
 $Group "dedicated"
@@ -497,7 +492,6 @@ $Group "dedicated"
 	"studiorender"
 	"tier0"
 	"tier1"
-<<<<<<< HEAD
 	"tier2"
 	"tier3"
 	"unitlib"
@@ -505,10 +499,6 @@ $Group "dedicated"
 	"vpklib"
 	"vstdlib"
 	"vtf"
-=======
-
-	"lua54"
->>>>>>> ace513a72 (build Lua from vpc)
 }
 
 // A dummy group so that we can include the dedicated project by itself.
@@ -576,7 +566,7 @@ $Group "port"
 	"networksystem"
 
 	"simdtest"
-	"lua"
+//	"lua"
 	"coroutine_osx"
 	"socketlib"
 	"gameui"
