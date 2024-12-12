@@ -1,4 +1,3 @@
-
 # Files to ignore when considering what GIT should commit.
 
 # Visual Studio 
@@ -55,7 +54,6 @@ config.cfg
 # shader files
 *.tmp
 
-<<<<<<< HEAD
 *.vpc.sentinel
 *.vcxproj*
 [Dd]ebug*/
@@ -72,7 +70,5 @@ game/client/client_hl2mp.vcxproj.vpc_crc
 game/server/server_hl2mp.vcxproj
 game/server/server_hl2mp.vcxproj.vpc_crc
 lib
-=======
 # config file different for each user
 .env
->>>>>>> 6f64643aa (Fix luaL_register)
