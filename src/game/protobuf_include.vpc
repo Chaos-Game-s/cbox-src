@@ -17,7 +17,7 @@ $Project
 
 	$Folder "Link Libraries" [$WIN64&&!$VS2015]
 	{
-		$File "$SRCDIR\thirdparty\protobuf-2.6.1\bin\win64\2013\staticcrt\release\libprotobuf.lib"
+//		$File "$SRCDIR\thirdparty\protobuf-2.6.1\bin\win64\2013\staticcrt\release\libprotobuf.lib"
 		{
 			$Configuration "Debug" 	{ $ExcludedFromBuild "Yes" }
 		}

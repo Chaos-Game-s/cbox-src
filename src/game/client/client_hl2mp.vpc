@@ -14,7 +14,7 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories		"$BASE;hl2mp\ui,.\hl2mp,$SRCDIR\game\shared\hl2mp,.\hl2,.\hl2\elements,$SRCDIR\game\shared\hl2"
+		$AdditionalIncludeDirectories		"$BASE;hl2mp\ui,.\hl2mp,$SRCDIR\game\shared\hl2mp,.\hl2,.\hl2\elements,$SRCDIR\game\shared\hl2;.\hl1,$SRCDIR\game\shared\hl1,$SRCDIR\game\shared\hl2"
 		$PreprocessorDefinitions			"$BASE;HL2MP;HL2_CLIENT_DLL;CHAOS"
 	}
 }
@@ -117,25 +117,6 @@ $Project "Client (ChaosBox)"
 		$Folder "ChaosBox DLL"
 		{
 			$File "$SRCDIR\game\shared\chaosbox\weapon_physgun.cpp"
-
-			$Folder "HL1 Content"
-			{
-			$File	"hl1\hl1_c_rpg_rocket.cpp"
-			$File   "hl1\hl1_c_weapon__stubs.cpp"
-			$File   "hl1\hl1_fx_gauss.cpp"
-			$File   "hl1\hl1_fx_shelleject.cpp"
-			$File   "$SRCDIR\game\shared\hl1\hl1mp_basecombatweapon_shared.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1_basecombatweapon_shared.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_357.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_egon.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_gauss.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_glock.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_handgrenade.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_hornetgun.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_mp5.cpp"
-			$File	"$SRCDIR\game\shared\hl1\hl1mp_weapon_sachel.cpp"
-			$File	"$SRCDIR\game\server\hl1\hl1_weapon_crowbar.cpp"
-			}
 		}
 
 		$Folder	"HL2MP"
